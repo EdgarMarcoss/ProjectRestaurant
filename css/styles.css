@@ -1,0 +1,114 @@
+/* ESTILOS DE LETRA */
+
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap');
+
+
+/* FIN ESTILOS DE LETRA */
+
+* {
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    clear: both;
+    font-family: 'Work Sans', sans-serif;
+}
+
+/* LOGIN */
+
+.background {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: rgb(251, 251, 251); */
+    background: linear-gradient(37deg,rgb(37, 206, 37), rgb(48, 197, 217));
+}
+.contenido {
+    padding: 20px;
+    border: 2px solid black;
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    color: black;
+    max-width: 400px;
+    /* width: 100%; */
+}
+.login-text {
+    position: relative;
+    text-align: center;
+    padding-bottom: 15px;
+    padding-top: 12px;
+    width: 100%;
+}
+.login-text span {
+    width: fit-content;
+    padding: 0 5px;
+    /* position: relative; */
+    /* background-color: white; */
+}
+/* .login-text:before {
+    position: absolute;
+    left: 0;
+    bottom: 45%;
+    content: ' ';
+    border-bottom: 5px solid black;
+    width: 100%;
+} */
+.login-text:before {
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    content: '';
+    border-bottom: 2px solid black;
+    width: 100%;
+}
+.contenido form {
+    padding: 0 10px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: fit-content;
+    justify-content: center;
+}
+.contenido form div {
+    padding: 20px 0;
+    width: 100%;
+}
+.contenido form div:first-child {
+    padding-top: 30px;
+}
+.contenido form div:last-child {
+    padding-bottom: 30px;
+}
+.contenido form label {
+    display: block;
+    color: black;
+    font-weight: 600;
+    font-size: 20px;
+    /* width: 10px; */
+    margin-bottom: 5px;
+}
+.contenido form input {
+    font-size: 18px;
+    width: 100%;
+    padding: 5px;
+    outline: 1px solid rgb(115, 190, 237);
+}
+
+.contenido form input.btn-login {
+    width: fit-content !important;
+    background-color: rgb(234, 114, 34);
+    color: white;
+    padding: 5px 20px;
+    border: none;
+    border-radius: 40%;
+}
+
+.btn-login:hover, .btn-login:target {
+    border: none;
+    outline: none;
+
+}
+
+/* FIN LOGIN */
