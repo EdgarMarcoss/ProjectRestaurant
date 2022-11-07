@@ -11,4 +11,6 @@ if (mysqli_connect_error()) {
     // echo "<script>location.href='../pages/login.php?log=2'</script>";
     echo "<script>alert('conexion erronea')</script>";
     exit();
+}else{
+    echo "<script>alert('conexion establecida')</script>";
 }
