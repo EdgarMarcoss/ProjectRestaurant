@@ -64,7 +64,7 @@
     width: 100%;
 }
 .contenido form {
-    padding: 0 10px;
+    padding: 0 20px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -78,8 +78,8 @@
 .contenido form div:first-child {
     padding-top: 30px;
 }
-.contenido form div:last-child {
-    padding-bottom: 30px;
+.contenido form div:nth-child(2) {
+    margin-bottom: 10px;
 }
 .contenido form label {
     display: block;
@@ -87,7 +87,7 @@
     font-weight: 600;
     font-size: 20px;
     /* width: 10px; */
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 .contenido form input {
     font-size: 18px;
@@ -100,15 +100,16 @@
     width: fit-content !important;
     background-color: rgb(234, 114, 34);
     color: white;
-    padding: 5px 20px;
-    border: none;
-    border-radius: 40%;
-}
-
-.btn-login:hover, .btn-login:target {
+    padding: 8px 25px;
     border: none;
     outline: none;
+    border-radius: 20px;
+}
 
+.contenido form input.btn-login:hover {
+    border: none;
+    outline: none;
+    background-color: rgb(202, 98, 29);
 }
 
 /* FIN LOGIN */
