@@ -14,7 +14,7 @@
     <div class="background">
         <div class="contenido">
             <h2 class="login-text"><span>LOGIN</span></h2>
-            <form action="./controller/proc_login.php" method="post">
+            <form action="./controller/proc_login.php" method="post" onsubmit="return valid()">
                 <div>
                     <label for="">Correo</label>
                     <input id="correo" type="text" name="mail" onkeyup="validCorreo()">
@@ -25,7 +25,7 @@
                     <input id="pass" type="password" onblur="validPass()" name="pass" required >
                     <p id="mensaje2"></p>
                 </div>
-                <input type="submit"  id="submit" class="btn-login" value="Entrar">
+                <input type="submit"  id="submit" class="btn-login" value="Entrar" >
             </form>
         </div>
     </div>

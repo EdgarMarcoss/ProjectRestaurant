@@ -13,7 +13,6 @@ try{
     // selecionamos en la base de datos los datos introducidos arriba para comprobar si existen
     $sql = "select * from tbl_usuarios where email_usuario='$user' and password_usuario='$pass'";
     $resultado = mysqli_query($conexion,$sql);
-    //$resul=$resultado->fetch_all(MYSQLI_ASSOC);
     $num=mysqli_num_rows($resultado);
     mysqli_free_result($resultado);
 
