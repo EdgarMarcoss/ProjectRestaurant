@@ -7,20 +7,21 @@
 .error-msg {
     position: absolute;
     top: 0;
-    right: -20%;
+    right: -60%;
     color: #D8000C;
     background-color: #FFBABA;
     margin: 10px 0;
     padding: 10px;
     border-radius: 3px 3px 3px 3px;
     width: 400px;
-    transition: all 1s;
+    -webkit-transition: all 1s;
+    -moz-transition: all 1s;
+    transition: all 1s ease-out;
     /* transform: rotate(90deg); */
 }
 
 .error-msg.animation-error {
     right: 0;
-
 }
 
 .closebtn {
@@ -246,6 +247,7 @@ body {
 .info-salas.mostrar {
     display: block;
     opacity: 1;
+    transform: rotateY(180deg);
 }
 
 /* MODAL */
