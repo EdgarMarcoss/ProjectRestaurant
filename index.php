@@ -12,20 +12,43 @@
 </head>
 <body>
     <div class="background">
+        <?php
+        if(isset($_GET['error'])){
+            if($_GET['error'] == 1){?>
+                <div class="error-msg">
+                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                    <i class="fa fa-times-circle"></i>
+                    <strong>Correo o contraseña incorrectos!</strong>
+                </div>
+            <?php
+            }else{?>
+                <div class="error-msg">
+                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                    <i class="fa fa-times-circle"></i>
+                    <strong>Algo esta fallando</strong>
+                </div>
+            <?php
+            }
+        }?>
+    
         <div class="contenido">
             <h2 class="login-text"><span>LOGIN</span></h2>
-            <form action="view/restaurante.php" method="post">
+            <form action="./controller/proc_login.php" method="post" onsubmit="return valid()">
                 <div>
                     <label for="">Correo</label>
-                    <input type="text" name="mail">
+                    <input id="correo" type="text" name="mail" onkeyup="validCorreo()">
+                    <p id="mensaje1"></p>
                 </div>
                 <div>
                     <label for="">Contraseña</label>
-                    <input type="password" name="pass" required>
+                    <input id="pass" type="password" onblur="validPass()" name="pass" required >
+                    <p id="mensaje2"></p>
                 </div>
-                <input type="submit" class="btn-login" value="Entrar">
+                <input type="submit"  id="submit" class="btn-login" value="Entrar" >
             </form>
         </div>
     </div>
 </body>
 </html>
+
+<script src="./js/validacion.js"></script>
