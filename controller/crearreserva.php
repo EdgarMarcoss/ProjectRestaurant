@@ -2,11 +2,11 @@
 
    
 require_once '../model/reserva.php';
-$sala = $_POST['sala']; 
-$mobiliario = $_POST['mobiliario']; 
+$id_usuario=$_GET['id_usuario'];
+$id_sala=$_GET['id_sala'];
+$id_mesa = $_POST['mesa']; 
 
-       
-Reserva::crearReserva($id_usuario, $id_salas);
+Reserva::crearReserva($id_usuario, $id_sala, $id_mesa);
 
 echo"<script>window.location.href = '../view/vista.php' </script>";
 

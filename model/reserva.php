@@ -6,14 +6,14 @@ class Reserva {
     private $fecha_reserva;
     private $fecha_desocupacion;
     private $id_usuario;
-    private $id_salas;   
+    private $id_mobiliario;   
 
-    public function __construct($id, $fecha_reserva, $fecha_desocupacion,$id_usuario, $id_salas) {
+    public function __construct($id, $fecha_reserva, $fecha_desocupacion,$id_usuario, $id_mobiliario) {
         $this->id = $id; //1º id referencia a atr, 2º a contructor
         $this->fecha_reserva = $fecha_reserva;
         $this->fecha_desocupacion = $fecha_desocupacion;
         $this->id_usuario = $id_usuario;       
-        $this->id_salas = $id_salas;      
+        $this->id_mobiliario = $id_mobiliario;      
         
     }
 
@@ -98,24 +98,24 @@ class Reserva {
     }
 
     /**
-     * Get the value of id_salas
+     * Get the value of id_mobiliario
      */ 
-    public function getId_salas()
+    public function getId_mobiliario()
     {
-        return $this->id_salas;
+        return $this->id_mobiliario;
     }
 
     /**
-     * Set the value of id_salas
+     * Set the value of id_mobiliario
      *
      * @return  self
      */ 
-    public function setId_salas($id_salas)
+    public function setId_mobiliario($id_mobiliario)
     {
-        $this->id_salas = $id_salas;
+        $this->id_mobiliario = $id_mobiliario;
 
         return $this;
-    }
+    }   
 
     /**
     * Esta funcion te devuelve la lista de reserva y no le pasa ningun parametro
@@ -129,14 +129,14 @@ class Reserva {
         return $listaReserva;      
     }     
     
-    public function crearReserva($id_usuario, $id_salas){
+    public static function crearReserva($id_usuario, $id_sala, $id_mesa){
 
         require_once "conexion.php";
            
-        $sql="INSERT INTO tbl_reserva (id,fecha_reserva,fecha_desocupacion,id_usuario,id_salas) VALUES (?,?,?,?,?)";
+        $sql="INSERT INTO tbl_reserva (id,fecha_reserva,fecha_desocupacion,id_usuario,id_sala,id_mesa) VALUES (?,?,?,?,?,?)";
         $stmt=mysqli_stmt_init($conexion);
         mysqli_stmt_prepare($stmt,$sql);
-        mysqli_stmt_bind_param($stmt,"issii",$id, $fecha_reserva, $fecha_desocupacion,$id_usuario, $id_salas);         
+        mysqli_stmt_bind_param($stmt,"issii",$id, $fecha_reserva, $fecha_desocupacion,$id_usuario, $id_sala,$id_mesa);         
         mysqli_stmt_execute($stmt);  
         
     }
@@ -152,4 +152,6 @@ class Reserva {
     } 
 
 
+
+    
 }
