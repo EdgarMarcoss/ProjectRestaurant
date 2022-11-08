@@ -1,3 +1,10 @@
+<?PHP
+session_start();
+if (!isset($_SESSION['user'])) {
+    echo "<script>window.location.href='../index.php'</script>";
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +16,11 @@
     <title>Restaurante</title>
 </head>
 <body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="navbar-nav">
+        <a class="nav-link bg-light" aria-current="page" href="../controller/logout.php">Logout</a>         
+    </div>
+  </nav>
     <div class="background">
         <div class="contenido restaurante">
             <!-- <div class="recuadro"> -->

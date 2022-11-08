@@ -19,6 +19,7 @@ try{
     //Si existen creamos la session, si no enviamos a login.php 
     if ($num==1){
         session_start();
+        $_SESSION['user'] = $user;
         echo "<script>location.href='../view/restaurante.php'</script>";
     }else{
         echo "<script>location.href='../index.php?error=1'</script>";
