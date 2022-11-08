@@ -209,7 +209,6 @@ body {
     width: 100%;
     height: 100%;
 }
-
 .salas {
     width: 33.333%;
     height: 200px;
@@ -246,6 +245,8 @@ body {
 .info-salas.mostrar {
     display: block;
     opacity: 1;
+    transform: rotateY(180deg);
+
 }
 
 /* MODAL */

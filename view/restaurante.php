@@ -14,21 +14,23 @@
             <!-- <div class="recuadro"> -->
                 <!-- Mostrar todos los sitios/salas -->
                 <div class="tipo">
-                    <div class="salas terraza">
+                    <div class="salas">
                         <div class="blur">
                             <h3>Terraza 1</h3>
                             <!-- Mostrar las mesas disponibles -->
                             <div class="info-salas">
+                                <p>Mesas totales: 5</p>
                                 <p>Mesas disponibles: 0</p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="salas terraza">
+                    <div class="salas">
                         <div class="blur">
                             <h3>Terraza 2</h3>
                             <!-- Mostrar las mesas disponibles -->
                             <div class="info-salas">
+                                <p>Mesas totales: 5</p>
                                 <p>Mesas disponibles: 0</p>
                             </div>
                         </div>
@@ -36,20 +38,22 @@
                 </div>
                 
                 <div class="tipo">
-                    <div class="salas comedor">
+                    <div class="salas">
                         <div class="blur">
                             <h3>Comedor 1</h3>
                             <!-- Mostrar las mesas disponibles -->
                             <div class="info-salas">
+                                <p>Mesas totales: 5</p>
                                 <p>Mesas disponibles: 0</p>
                             </div>
                         </div>
                     </div>
-                    <div class="salas comedor">
+                    <div class="salas">
                         <div class="blur">
                             <h3>Comedor 2</h3>
                             <!-- Mostrar las mesas disponibles -->
                             <div class="info-salas">
+                                <p>Mesas totales: 5</p>
                                 <p>Mesas disponibles: 0</p>
                             </div>
                         </div>
@@ -57,7 +61,7 @@
                 </div>
 
                 <div class="tipo">
-                    <div class="salas privada">
+                    <div class="salas">
                         <div class="blur">
                             <h3>Privado 1</h3>
                             <!-- Mostrar las mesas disponibles -->
@@ -68,11 +72,12 @@
                         </div>
                     </div>
 
-                    <div class="salas privada">
+                    <div class="salas">
                         <div class="blur">
                             <h3>Privado 2</h3>
                             <!-- Mostrar las mesas disponibles -->
                             <div class="info-salas">
+                                <p>Mesas totales: 5</p>
                                 <p>Mesas disponibles: 0</p>
                             </div>
                         </div>
