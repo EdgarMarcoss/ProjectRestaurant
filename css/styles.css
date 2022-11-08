@@ -1,0 +1,266 @@
+/* ESTILOS DE LETRA */
+
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap');
+
+
+/*Estilos alertas*/
+.error-msg {
+    position: absolute;
+    top: 0;
+    right: -20%;
+    color: #D8000C;
+    background-color: #FFBABA;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 3px 3px 3px 3px;
+    width: 400px;
+    transition: all 1s;
+    /* transform: rotate(90deg); */
+}
+
+.error-msg.animation-error {
+    right: 0;
+
+}
+
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+  
+.closebtn:hover {
+    color: black;
+}
+
+/* FIN ESTILOS DE LETRA */
+
+* {
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    clear: both;
+    font-family: 'Work Sans', sans-serif;
+}
+
+/* LOGIN */
+body {
+    overflow: hidden;
+}
+.background {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: rgb(251, 251, 251); */
+    background: linear-gradient(37deg,rgb(37, 206, 37), rgb(48, 197, 217));
+}
+.contenido {
+    padding: 20px;
+    border: 2px solid black;
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    color: black;
+    max-width: 400px;
+    /* width: 100%; */
+}
+.login-text {
+    position: relative;
+    text-align: center;
+    padding-bottom: 15px;
+    padding-top: 12px;
+    width: 100%;
+}
+.login-text span {
+    width: fit-content;
+    padding: 0 5px;
+    /* position: relative; */
+    /* background-color: white; */
+}
+/* .login-text:before {
+    position: absolute;
+    left: 0;
+    bottom: 45%;
+    content: ' ';
+    border-bottom: 5px solid black;
+    width: 100%;
+} */
+.login-text:before {
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    content: '';
+    border-bottom: 2px solid black;
+    width: 100%;
+}
+.contenido form {
+    padding: 0 20px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: fit-content;
+    justify-content: center;
+}
+.contenido form div {
+    padding: 20px 0;
+    width: 100%;
+}
+.contenido form div:first-child {
+    padding-top: 30px;
+}
+.contenido form div:nth-child(2) {
+    margin-bottom: 10px;
+}
+.contenido form label {
+    display: block;
+    color: black;
+    font-weight: 600;
+    font-size: 20px;
+    /* width: 10px; */
+    margin-bottom: 10px;
+}
+.contenido form input {
+    font-size: 18px;
+    width: 100%;
+    padding: 5px;
+    outline: 1px solid rgb(115, 190, 237);
+}
+
+.contenido form input.btn-login {
+    width: fit-content !important;
+    background-color: rgb(234, 114, 34);
+    color: white;
+    padding: 8px 25px;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+}
+
+.contenido form input.btn-login:hover {
+    border: none;
+    outline: none;
+    background-color: rgb(202, 98, 29);
+}
+
+/* FIN LOGIN */
+
+
+/* PAGINA RESTAURANTE */
+
+.contenido.restaurante {
+    /* padding: 20px; */
+    padding: 0px;
+    /* border: 2px solid black; */
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+    border-radius: 0px;
+    color: black;
+    /* max-width: 600px; */
+    max-width: initial;
+    width: 70%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.tipo-sal {
+    /* padding: 0 20px; */
+    width: 50%;
+    height: 200px;
+    border: 1px solid black;
+    background-size: cover;
+}
+/* .tipo-sal:hover {
+    transition: all .5s;
+    transform: rotateY(180deg); 
+} */
+.tipo-sal.terraza {
+    background-image: url('../img/restaurante/terraza.jpg');
+    background-position: center bottom;
+}
+.tipo-sal.terraza.remove > .blur > h2 {
+    display: none;
+}
+.tipo-sal.comedor {
+    background-image: url('../img/restaurante/comedor.jpg');
+}
+.tipo-sal.privada {
+    background-image: url('../img/restaurante/privada.jpg');
+}
+.tipo-sal.secundaria {
+    background-image: url('../img/restaurante/baja.jpg');
+    background-position: right bottom;
+}
+.blur {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    background-color: rgba(255, 255, 255, .5);
+    backdrop-filter: blur(2px);
+    width: 100%;
+    height: 100%;
+}
+
+.salas {
+    width: 33.333%;
+    height: 200px;
+    border: 1px solid black;
+    background-size: cover;
+    transition: all 0.7s;
+}
+.salas.minimas {
+    width: 33.3333%;
+}
+.salas.mostrar {
+    display: block;
+    transform: rotateY(180deg);
+}
+.salas .blur {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    align-content: center;
+}
+.tipo {
+    display: contents;
+}
+.salas .blur > * {
+    width: 100%;
+}
+
+.info-salas {
+    display: none;
+    opacity: 0;
+    transition: all .7s;
+}
+.info-salas.mostrar {
+    display: block;
+    opacity: 1;
+}
+
+/* MODAL */
+
+.color-back {
+    opacity: 0;
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    /* background-color: black; */
+    z-index: -1;
+}
+
+/* FIN MODAL */
+
+/* FIN PAGINA RESTAURANTE */
