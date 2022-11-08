@@ -5,35 +5,46 @@ window.addEventListener('load', () => {
     }
 
     const tipos = document.getElementsByClassName('tipo');
-    console.log(tipos.length);
-    var tsala = '';
+    // console.log(tipos.length);
+    // var tsala = '';
     var nsala = '';
     for (let i = 0; i < tipos.length; i++) {
         nsala = tipos[i].getElementsByClassName('salas')[0].className.split(' ')[1];
-        console.log(nsala);
+        // console.log(nsala);
         var csala = tipos[i].getElementsByClassName(nsala);
-        console.log(csala.length);
+        // console.log(csala.length);
         for (let j = 0; j < csala.length; j++) {
-
-            tsala = csala[j];
-            console.log(tsala);
-            tsala.onclick = () => {
-                console.log(tsala);
-                tsala.classList.toggle('mostrar');
+            csala[j].addEventListener('click', () => {
+                // tsala = csala[j];
+                console.log(tipos[i].getElementsByClassName(nsala)[j]);
+                // console.log(tsala);
+                csala[j].classList.toggle('mostrar');
                 // tsala.getElementsByTagName('h3')[0].classList.toggle('info-salas');
                 // tsala.getElementsByClassName('info-salas')[0].classList.toggle('mostrar');
                 // for (let j = 0; j < tsala.getElementsByClassName('salas').length; j++) {
                 //     tsala.getElementsByClassName('salas')[j].classList.toggle(nsala);
                 // }
-            }
-        }
+            });
+        };
+    }
+
+    for (let i = 0; i < tipos.length; i++) {
+        nsala = tipos[i].getElementsByClassName('salas')[0].className.split(' ')[1];
+        console.log(nsala);
+        tipos[i].getElementsByClassName(nsala).forEach(element => {
+            
+        });
+
+    }
+
+
         // tsala.onmouseout = () => {
         //     tsala.classList.remove('remove')
         //     for (let j = 0; j < tsala.getElementsByClassName('salas').length; j++) {
         //         tsala.getElementsByClassName('salas')[j].classList.remove(nsala);
         //     }
         // }
-    }
+    // }
 
     // const tipos2 = document.getElementsByClassName('tipo-sal');
     // for (let i = 0; i < tipos2.length; i++) {
