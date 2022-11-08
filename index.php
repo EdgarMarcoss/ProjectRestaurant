@@ -17,15 +17,19 @@
             <form action="view/restaurante.php" method="post">
                 <div>
                     <label for="">Correo</label>
-                    <input type="text" name="mail">
+                    <input id="correo" type="text" name="mail" onkeyup="validCorreo()">
+                    <p id="mensaje1"></p>
                 </div>
                 <div>
                     <label for="">Contraseña</label>
-                    <input type="password" name="pass" required>
+                    <input id="pass" type="password" onblur="validPass()" name="pass" required >
+                    <p id="mensaje2"></p>
                 </div>
-                <input type="submit" class="btn-login" value="Entrar">
+                <input type="submit"  id="submit" class="btn-login" value="Entrar">
             </form>
         </div>
     </div>
 </body>
 </html>
+
+<script src="./js/validacion.js"></script>
