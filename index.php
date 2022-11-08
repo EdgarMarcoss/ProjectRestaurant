@@ -7,7 +7,7 @@
     <!-- CABEZERA -->
     <link rel="stylesheet" href="css/styles.css">
     <script src="https://kit.fontawesome.com/661e46e89e.js" crossorigin="anonymous"></script>
-    <!-- <script src="js/..."></script> -->
+    <script src="js/estilos.js"></script>
     <title>Login</title>
 </head>
 <body>
