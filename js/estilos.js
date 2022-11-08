@@ -1,5 +1,9 @@
 window.addEventListener('load', () => {
 
+    if (document.getElementsByClassName('error-msg')[0]) {
+        document.getElementsByClassName('error-msg')[0].classList.add('animation-error');
+    }
+
     const tipos = document.getElementsByClassName('tipo');
     console.log(tipos.length);
     var tsala = '';
