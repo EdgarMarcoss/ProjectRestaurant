@@ -21,9 +21,9 @@ try{
         session_start();
         echo "<script>location.href='../view/restaurante.php'</script>";
     }else{
-        echo "<script>location.href='../index.php'</script>";
+        echo "<script>location.href='../index.php?error=1'</script>";
     }
 
 }catch(Exception $e){
-    echo "<script>location.href='../index.php'</script>";
+    echo "<script>location.href='../index.php?error=2'</script>";
 }

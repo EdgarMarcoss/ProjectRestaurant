@@ -12,6 +12,25 @@
 </head>
 <body>
     <div class="background">
+        <?php
+        if(isset($_GET['error'])){
+            if($_GET['error'] == 1){?>
+                <div class="error-msg">
+                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                    <i class="fa fa-times-circle"></i>
+                    <strong>Correo o contraseña incorrectos!</strong>
+                </div>
+            <?php
+            }else{?>
+                <div class="error-msg">
+                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                    <i class="fa fa-times-circle"></i>
+                    <strong>Algo esta fallando</strong>
+                </div>
+            <?php
+            }
+        }?>
+    
         <div class="contenido">
             <h2 class="login-text"><span>LOGIN</span></h2>
             <form action="./controller/proc_login.php" method="post" onsubmit="return valid()">
