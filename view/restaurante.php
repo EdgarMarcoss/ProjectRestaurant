@@ -25,9 +25,12 @@ if (!isset($_SESSION['user'])) {
             <!-- Mostrar todos los sitios/salas -->
             <?php
             require_once '../model/sala.php';
+        
             foreach (Sala::getSala() as $element) {
+                
                 echo '<div class="salas">
                             <div class="blur">
+
                                 <h3>'.str_replace("_", " ", $element["nombre_sala"]).'</h3>
                                 <div class="info-salas">
                                     <p>Mesas totales: 5</p>
