@@ -129,14 +129,14 @@ class Reserva {
         return $listaReserva;      
     }     
     
-    public static function crearReserva($id_usuario, $id_sala, $id_mesa){
+    public static function crearReserva($nombre_reserva,$id_usuario, $id_sala, $id_mesa){
 
         require_once "conexion.php";
            
-        $sql="INSERT INTO tbl_reserva (id,fecha_reserva,fecha_desocupacion,id_usuario,id_sala,id_mesa) VALUES (?,?,?,?,?,?)";
+        $sql="INSERT INTO tbl_reserva (id,fecha_reserva,fecha_desocupacion,nombre_reserva,id_usuario,id_sala,id_mesa) VALUES (?,?,?,?,?,?,?)";
         $stmt=mysqli_stmt_init($conexion);
         mysqli_stmt_prepare($stmt,$sql);
-        mysqli_stmt_bind_param($stmt,"issii",$id, $fecha_reserva, $fecha_desocupacion,$id_usuario, $id_sala,$id_mesa);         
+        mysqli_stmt_bind_param($stmt,"issii",$id, $fecha_reserva, $fecha_desocupacion,$nombre_reserva,$id_usuario, $id_sala,$id_mesa);         
         mysqli_stmt_execute($stmt);  
         
     }
@@ -144,7 +144,7 @@ class Reserva {
     public static function eliminarReserva($id){     
       
         require_once 'conexion.php';
-        $sql =("DELETE FROM `tbl_reserva` WHERE `id`=?");
+        $sql =("UPDATE `tbl_reserva` SET `fecha_desocupacion` = now() WHERE `id`=?");
         $stmt=mysqli_stmt_init($conexion);
         mysqli_stmt_prepare($stmt,$sql);
         mysqli_stmt_bind_param($stmt,"i",$id);  

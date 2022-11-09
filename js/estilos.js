@@ -21,4 +21,5 @@ window.addEventListener('load', () => {
     // document.getElementsByClassName('hola')[0].addEventListener('click', () => {
     //     alert('img');
     // })
+    
 })

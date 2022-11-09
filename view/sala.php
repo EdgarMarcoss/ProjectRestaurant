@@ -16,18 +16,39 @@ include 'cabezera.html';
         <?php 
         require_once '../model/mobiliario.php';
         foreach (Mobiliario::getMobiliario($_SESSION['id_sala']) as $mesa) {
-            echo '<a href="#modal"><img class="'.$mesa["estado_mobiliario"].'" src="../img/mesas/'.$mesa["img_mobiliario"].'"></a>';
+            echo '<form action="./sala.php" method="post">';
+            // echo '<a href="#'.$mesa["estado_mobiliario"].'"><img class="'.$mesa["estado_mobiliario"].'" src="../img/mesas/'.$mesa["img_mobiliario"].'"></a>';
+            echo '<button type="submit" name="submit"><img class="'.$mesa["estado_mobiliario"].'" src="../img/mesas/'.$mesa["img_mobiliario"].'"></button>';
+            echo '<input type="hidden" name="estado" value="'.$mesa["estado_mobiliario"].'">';
+            echo '<input type="hidden" name="id_mobi" value="'.$mesa["id"].'">';
             echo "<br>";
+            echo '</form>';
         }
         ?>
     </div>
     
-    <div id="modal" class="modalmask">
+    <?php if (isset($_POST['submit'])){
+        if ($_POST['estado'] == 'ocupado') { ?>
+    <div id="ocupado" class="modalmask">
         <div class="modalbox movedown" id="resultadoContent">
             <a href="#close" title="Close" class="close">X</a>
             <h2 id="tituloResultado">TITULO</h2>
-            <div id="contenidoResultado">contenido resultado</div>
+            <div id="contenidoResultado">Finalizar reserva</div>
         </div>
     </div>
+    <?php } else { ?>
+    <div id="libre" class="modalmask">
+        <div class="modalbox movedown" id="resultadoContent">
+            <a href="#close" title="Close" class="close">X</a>
+            <h2 id="tituloResultado">TITULO</h2>
+            <form action="../controller/crearreserva.php" method="post">
+                <input type="hidden" name="mesa" value="<?php var_dump(Mobiliario::getMobiliario($_SESSION['id_sala'])[0]["id"]) ?>" id="id_mesa">
+                Nombre Reserva <input type="text" name="nombre_reserva">
+                <button type="submit" id="contenidoResultado">Reservar</button>
+            </form>
+
+        </div>
+    </div>
+    <?php }};?>
 </body>
 </html>
