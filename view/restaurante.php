@@ -25,14 +25,15 @@ if (!isset($_SESSION['user'])) {
             <!-- Mostrar todos los sitios/salas -->
             <?php
             require_once '../model/sala.php';
-        
+            $vuelta = 0;
             foreach (Sala::getSala() as $element) {
+                
                 echo '<div class="salas">
                             <div class="blur">
                                 <h3>'.str_replace("_", " ", $element["nombre_sala"]).'</h3>
                                 <div class="info-salas">
                                     <p>Mesas totales: '.$element["Mid"].'</p>
-                                    <p>Mesas disponibles: '.Sala::getSalaLibre()[0]["Mid"].'</p>
+                                    <p>Mesas disponibles: '.Sala::getMesaLibre()[$vuelta]["Mid"].'</p>
                                     <form action="sala.php" method="post">
                                         <input type="hidden" name="sala" value="'.($_SESSION['id_sala'] = $element['id']).'">
                                         <button type="submit">Mirar</button>
@@ -40,6 +41,7 @@ if (!isset($_SESSION['user'])) {
                                 </div>
                             </div>
                         </div>';
+                        $vuelta++;
             } ?>                
         </div>
         <div class="color-back ">
