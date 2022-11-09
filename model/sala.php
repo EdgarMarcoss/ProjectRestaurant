@@ -54,14 +54,14 @@ class Sala {
     public static function getSala(){
 
         include 'conexion.php';
-        $sql="SELECT s.id, s.nombre_sala, count(m.id) as `Mid` FROM tbl_salas s INNER JOIN tbl_mobiliario m ON s.id=m.id_sala";  
+        $sql="SELECT s.id, s.nombre_sala, count(m.id) as `Mid` FROM tbl_salas s INNER JOIN tbl_mobiliario m ON s.id=m.id_sala GROUP BY s.id";  
         $listaSalas = mysqli_query($conexion, $sql);
         return $listaSalas; 
     }
 
-    public static function getSalaLibre() {
+    public static function getMesaLibre() {
         include 'conexion.php';
-        $sql="SELECT s.id, s.nombre_sala, count(m.id) as `Mid` FROM tbl_salas s INNER JOIN tbl_mobiliario m ON s.id=m.id_sala WHERE m.estado_mobiliario = 'libre'";  
+        $sql="SELECT s.id, s.nombre_sala, count(m.id) as `Mid` FROM tbl_salas s INNER JOIN tbl_mobiliario m ON s.id=m.id_sala WHERE m.estado_mobiliario = 'libre' GROUP BY s.id";  
         $listaSalas = mysqli_query($conexion, $sql);
         return $listaSalas->fetch_all(MYSQLI_ASSOC); 
     }
