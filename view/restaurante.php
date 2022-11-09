@@ -35,7 +35,7 @@ if (!isset($_SESSION['user'])) {
                                 <div class="info-salas">
                                     <p>Mesas totales: '.$element["Mid"].'</p>
                                     <p>Mesas disponibles: '.Sala::getMesaLibre()[$vuelta]["Mid"].'</p>
-                                    <form action="sala.php" method="post">
+                                    <form action="sala.php" method="post" class="ver">
                                         <input type="hidden" name="sala" value="'.$element['id'].'">
                                         <button type="submit">Mirar</button>
                                     </form>
