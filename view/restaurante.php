@@ -26,6 +26,7 @@ if (!isset($_SESSION['user'])) {
             <?php
             require_once '../model/sala.php';
             $vuelta = 0;
+            
             foreach (Sala::getSala() as $element) {
                 
                 echo '<div class="salas">
@@ -35,7 +36,7 @@ if (!isset($_SESSION['user'])) {
                                     <p>Mesas totales: '.$element["Mid"].'</p>
                                     <p>Mesas disponibles: '.Sala::getMesaLibre()[$vuelta]["Mid"].'</p>
                                     <form action="sala.php" method="post">
-                                        <input type="hidden" name="sala" value="'.($_SESSION['id_sala'] = $element['id']).'">
+                                        <input type="hidden" name="sala" value="'.$element['id'].'">
                                         <button type="submit">Mirar</button>
                                     </form>
                                 </div>
