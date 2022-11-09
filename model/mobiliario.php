@@ -120,7 +120,7 @@ class Mobiliario {
      
 
         include 'conexion.php';
-        $sql="SELECT m.numero_mobiliario FROM tbl_mobiliario m INNER JOIN tbl_salas s ON m.id_sala=s.id where id_sala=$salas";  
+        $sql="SELECT m.numero_mobiliario, m.img_mobiliario FROM tbl_mobiliario m INNER JOIN tbl_salas s ON m.id_sala=s.id where id_sala=$salas";  
         $listaMobiliario = mysqli_query($conexion, $sql);         
         return $listaMobiliario;
 

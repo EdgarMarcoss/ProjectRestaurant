@@ -33,7 +33,8 @@ if (!isset($_SESSION['user'])) {
                                 <div class="info-salas">
                                     <p>Mesas totales: '.$element["Mid"].'</p>
                                     <p>Mesas disponibles: '.Sala::getSalaLibre()[0]["Mid"].'</p>
-                                    <form action="vista.php" method="post">
+                                    <form action="sala.php" method="post">
+                                        <input type="hidden" name="sala" value="'.($_SESSION['id_sala'] = $element['id']).'">
                                         <button type="submit">Mirar</button>
                                     </form>
                                 </div>
