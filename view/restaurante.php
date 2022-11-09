@@ -11,98 +11,31 @@ if (!isset($_SESSION['user'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/styles.css">
-    <script src="../js/estilos.js"></script>
+    <?php require_once 'cabezera.html'; ?>
     <title>Restaurante</title>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="navbar-nav">
-        <a class="nav-link bg-light" aria-current="page" href="../controller/logout.php">Logout</a>         
-    </div>
+    <!-- <div class="navbar-nav"> -->
+        <a class="log-out" aria-current="page" href="../controller/logout.php"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>         
+    <!-- </div> -->
   </nav>
     <div class="background">
         <div class="contenido restaurante">
-            <!-- <div class="recuadro"> -->
-                <!-- Mostrar todos los sitios/salas -->
-                <div class="tipo">
-                    <div class="salas">
-                        <div class="blur">
-                            <h3>Terraza 1</h3>
-                            <!-- Mostrar las mesas disponibles -->
-                            <div class="info-salas">
-                                <p>Mesas totales: 5</p>
-                                <p>Mesas disponibles: 0</p>
+            <!-- Mostrar todos los sitios/salas -->
+            <?php
+            require_once '../model/sala.php';
+            foreach (Sala::getSala() as $element) {
+                echo '<div class="salas">
+                            <div class="blur">
+                                <h3>'.str_replace("_", " ", $element["nombre_sala"]).'</h3>
+                                <div class="info-salas">
+                                    <p>Mesas totales: 5</p>
+                                    <p>Mesas disponibles: 0</p>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-
-                    <div class="salas">
-                        <div class="blur">
-                            <h3>Terraza 2</h3>
-                            <!-- Mostrar las mesas disponibles -->
-                            <div class="info-salas">
-                                <p>Mesas totales: 5</p>
-                                <p>Mesas disponibles: 0</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="tipo">
-                    <div class="salas">
-                        <div class="blur">
-                            <h3>Comedor 1</h3>
-                            <!-- Mostrar las mesas disponibles -->
-                            <div class="info-salas">
-                                <p>Mesas totales: 5</p>
-                                <p>Mesas disponibles: 0</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="salas">
-                        <div class="blur">
-                            <h3>Comedor 2</h3>
-                            <!-- Mostrar las mesas disponibles -->
-                            <div class="info-salas">
-                                <p>Mesas totales: 5</p>
-                                <p>Mesas disponibles: 0</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="tipo">
-                    <div class="salas">
-                        <div class="blur">
-                            <h3>Privado 1</h3>
-                            <!-- Mostrar las mesas disponibles -->
-                            <div class="info-salas">
-                                <p>Mesas totales: 5</p>
-                                <p>Mesas disponibles: 0</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="salas">
-                        <div class="blur">
-                            <h3>Privado 2</h3>
-                            <!-- Mostrar las mesas disponibles -->
-                            <div class="info-salas">
-                                <p>Mesas totales: 5</p>
-                                <p>Mesas disponibles: 0</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-
-                
-
-                
-
-                   
-            <!-- </div> -->
+                        </div>';
+            } ?>                   
         </div>
 
         <div class="color-back ">

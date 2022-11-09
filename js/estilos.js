@@ -2,6 +2,9 @@ window.addEventListener('load', () => {
 
     if (document.getElementsByClassName('error-msg')[0]) {
         document.getElementsByClassName('error-msg')[0].classList.add('animation-error');
+        setTimeout(function(){
+            document.getElementsByClassName('error-msg')[0].classList.remove('animation-error');
+        }, 3000);
     }
 
     const s = document.getElementsByClassName('salas');
