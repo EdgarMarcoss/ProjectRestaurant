@@ -25,15 +25,15 @@ if (!isset($_SESSION['user'])) {
             <!-- Mostrar todos los sitios/salas -->
             <?php
             require_once '../model/sala.php';
-            foreach (Sala::getSala() as $sala) {
+        
+            foreach (Sala::getSala() as $element) {
                 echo '<div class="salas">
                             <div class="blur">
-                                <h3>'.str_replace("_", " ", $sala["nombre_sala"]).'</h3>
+                                <h3>'.str_replace("_", " ", $element["nombre_sala"]).'</h3>
                                 <div class="info-salas">
-                                    <p>Mesas totales: 5</p>
-                                    <p>Mesas disponibles: 0</p>
+                                    <p>Mesas totales: '.$element["Mid"].'</p>
+                                    <p>Mesas disponibles: '.Sala::getSalaLibre()[0]["Mid"].'</p>
                                     <form action="vista.php" method="post">
-                                        <input type="hidden" name="id" value="'.$sala["id"].'">
                                         <button type="submit">Mirar</button>
                                     </form>
                                 </div>
@@ -41,7 +41,6 @@ if (!isset($_SESSION['user'])) {
                         </div>';
             } ?>                   
         </div>
-        <button type="submit"></button>
         <div class="color-back ">
             <div class="modal">
                 
