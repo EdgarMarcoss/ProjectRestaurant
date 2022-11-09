@@ -12,13 +12,16 @@ include 'cabezera.html';
     <title>Document</title>
 </head>
 <body>
-    <?php 
-    require_once '../model/mobiliario.php';
-    foreach (Mobiliario:: getMobiliario($_SESSION['id_sala']) as $mesa) {
-        echo '<a href="#modal"><img src="../img/mesas/'.$mesa["img_mobiliario"].'""></a>';
-        echo "<br>";
-    }
-    ?>
+    <div class="fondo-mesas">
+        <?php 
+        require_once '../model/mobiliario.php';
+        foreach (Mobiliario::getMobiliario($_SESSION['id_sala']) as $mesa) {
+            echo '<a href="#modal"><img class="'.$mesa["estado_mobiliario"].'" src="../img/mesas/'.$mesa["img_mobiliario"].'"></a>';
+            echo "<br>";
+        }
+        ?>
+    </div>
+    
     <div id="modal" class="modalmask">
         <div class="modalbox movedown" id="resultadoContent">
             <a href="#close" title="Close" class="close">X</a>
@@ -27,9 +30,4 @@ include 'cabezera.html';
         </div>
     </div>
 </body>
-<script>
-    window.onload = () => {
-        alert('hola');
-    }
-</script>
 </html>

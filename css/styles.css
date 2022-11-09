@@ -354,6 +354,27 @@ body {
 }
 /* FIN MODAL */
 
-
-
+.fondo-mesas {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.fondo-mesas > * {
+    width: 50%;
+}
+.ocupado {
+    -webkit-filter: invert(33%) sepia(98%) saturate(7468%) hue-rotate(358deg) brightness(93%) contrast(119%);
+    filter: invert(33%) sepia(98%) saturate(7468%) hue-rotate(358deg) brightness(93%) contrast(119%);
+}
+.mantenimiento {
+    -webkit-filter: invert(33%) sepia(98%) saturate(7468%) hue-rotate(358deg) brightness(93%) contrast(119%);
+    filter: invert(33%) sepia(5%) saturate(7408%) hue-rotate(0deg) brightness(100%) contrast(300%);
+}
+/* .default {
+    -webkit-filter: invert(33%) sepia(98%) saturate(7468%) hue-rotate(358deg) brightness(93%) contrast(119%);
+    filter: invert(33%) sepia(5%) saturate(7408%) hue-rotate(0deg) brightness(100%) contrast(300%);
+} */
 /* FIN PAGINA RESTAURANTE */
