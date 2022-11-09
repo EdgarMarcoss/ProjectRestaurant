@@ -54,7 +54,7 @@ class Sala {
     public static function getSala(){
 
         include 'conexion.php';
-        $sql="SELECT * FROM tbl_salas";  
+        $sql="SELECT * FROM tbl_salas s INNER JOIN tbl_mobiliario m ON s.id=m.id_sala";  
         $listaSalas = mysqli_query($conexion, $sql);  
         return $listaSalas; 
     }
