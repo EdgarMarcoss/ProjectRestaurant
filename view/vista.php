@@ -1,3 +1,6 @@
+
+
+
 <?php
 echo "<td><a type='button' class='btn btn-danger' href='../view/crearreservavista.php'>Crear</a></td>";
 ?>
