@@ -41,17 +41,17 @@ include 'cabezera.html';
                 <div class="contenido modalbox">
                 <a href="" title="Close" class="close">X</a>
                     <h2 class="login-text"><span>Finalizar reserva</span></h2>
-                    <form action="../controller/crearreserva.php" method="post" class="form-res" onsubmit="return valid()">
-                        <!-- <input type="hidden" name="mesa" value="<?php // var_dump(Mobiliario::getMobiliario($_SESSION['id_sala'])[0]['id']) ?>" id="id_mesa"> -->
+                    <form action="../controller/eliminarreserva.php" method="post" class="form-res" onsubmit="return valid()">
+                        <input type="hidden" name="mesa" value="<?php echo $_POST['id_mobi'] ?>" id="id_mesa">
                         <div class="reservar">
                         <select name="motivo" id="final-reserva">
                             <option value="finalizar" default>Finalizar</option>
-                            <option value="Cancelar">Cancelar</option>
+                            <option value="cancelar">Cancelar</option>
                         </select>
                             <!-- <p id="mensaje2"></p> -->
                         </div>
 
-                        <input type="submit"  id="submit" class="btn-login" value="Reservar" >
+                        <input type="submit"  id="submit" class="btn-login" value="Enviar" >
                     </form>
                 </div>
             </div>
@@ -61,7 +61,7 @@ include 'cabezera.html';
         <a href="" title="Close" class="close">X</a>
             <h2 class="login-text"><span>Reserva</span></h2>
             <form action="../controller/crearreserva.php" method="post" onsubmit="return valid()">
-                <input type="hidden" name="mesa" value="<?php var_dump(Mobiliario::getMobiliario($_SESSION['id_sala'])[0]['id']) ?>" id="id_mesa">
+                <input type="hidden" name="mesa" value="<?php echo $_POST['id_mobi'] ?>" id="id_mesa">
                 <div>
                     <label for="">Nombre Reserva</label>
                     <input type="text" name="nombre_reserva">

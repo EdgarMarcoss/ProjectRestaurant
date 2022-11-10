@@ -1,14 +1,14 @@
 <?php
 
-         
-   
-
     require_once '../model/reserva.php';  
+    $id_mesa = $_POST['mesa'];
 
-    $id = $_GET['id'];
+    if($_POST['motivo']=='finalizar'){
+        Reserva::eliminarReserva($id_mesa);  
+    }
 
-    Reserva::eliminarReserva($id);  
+   
     
-    echo"<script>window.location.href = '../view/vista.php' </script>";
+    echo"<script>window.location.href = '../view/sala.php' </script>";
 
 
