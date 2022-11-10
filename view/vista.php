@@ -19,7 +19,7 @@ echo "<td><a type='button' class='btn btn-danger' href='../view/crearreservavist
     <tbody>
         <?php 
             require_once '../model/reserva.php'; 
-            $listaReserva=Reserva::getReserva();
+            $listaReserva=Reserva::getReservaActual();
 
             foreach ($listaReserva as $reserva){
                 echo "<tr>";  
