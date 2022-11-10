@@ -46,7 +46,8 @@ if (!isset($_SESSION['user'])) {
                 echo '</div>';
 
                         $vuelta++;
-            } ?>                
+            } ?> 
+            <a href="vista.php"><button>Reservas</button></a>  
         </div>
         <div class="color-back ">
             <div class="modal">
