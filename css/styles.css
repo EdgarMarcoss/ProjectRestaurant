@@ -87,14 +87,6 @@ body {
     /* position: relative; */
     /* background-color: white; */
 }
-/* .login-text:before {
-    position: absolute;
-    left: 0;
-    bottom: 45%;
-    content: ' ';
-    border-bottom: 5px solid black;
-    width: 100%;
-} */
 .login-text:before {
     position: absolute;
     left: 0;
@@ -194,17 +186,6 @@ body {
     align-items: center;
     flex-wrap: wrap;
 }
-.tipo-sal {
-    /* padding: 0 20px; */
-    width: 50%;
-    height: 200px;
-    border: 1px solid black;
-    background-size: cover;
-}
-/* .tipo-sal:hover {
-    transition: all .5s;
-    transform: rotateY(180deg); 
-} */
 .salas.Terraza {
     background-image: url('../img/restaurante/terraza.jpg');
     background-position: center bottom;
@@ -292,6 +273,22 @@ body {
 }
 .form-res {
     text-align: center;
+}
+.btn-reservas {
+    position: absolute;
+    top: 50%;
+    left: 0;
+}
+.btn-reservas button {
+    width: 150px;
+    height: 50px;
+    font-size: 20px;
+    margin-left: 10px;
+    background-color: #58e7fa;
+    border: thin solid #000;
+    font-weight: bold;
+    border-radius: 15px;
+    cursor: pointer;
 }
 #final-reserva {
     margin-top: 20px;
