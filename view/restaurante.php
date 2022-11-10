@@ -28,8 +28,9 @@ if (!isset($_SESSION['user'])) {
             $vuelta = 0;
             
             foreach (Sala::getSala() as $element) {
-                
-                echo '<div class="salas">
+                // var_dump(explode(" ", $element["nombre_sala"])[0]);
+                echo '<div class="content">';
+                echo '<div class="salas '.explode("_", $element["nombre_sala"])[0].'">
                             <div class="blur">
                                 <h3>'.str_replace("_", " ", $element["nombre_sala"]).'</h3>
                                 <div class="info-salas">
@@ -37,11 +38,13 @@ if (!isset($_SESSION['user'])) {
                                     <p>Mesas disponibles: '.Sala::getMesaLibre()[$vuelta]["Mid"].'</p>
                                     <form action="sala.php" method="post" class="ver">
                                         <input type="hidden" name="sala" value="'.$element['id'].'">
-                                        <button type="submit">Mirar</button>
+                                        <button type="submit" class="btn-salas">Ver</button>
                                     </form>
                                 </div>
                             </div>
                         </div>';
+                echo '</div>';
+
                         $vuelta++;
             } ?>                
         </div>

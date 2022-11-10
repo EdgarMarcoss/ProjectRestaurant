@@ -117,13 +117,11 @@ class Mobiliario {
     }
 
     public static function getMobiliario($salas){  
-     
 
         include 'conexion.php';
-        $sql="SELECT m.numero_mobiliario, m.img_mobiliario FROM tbl_mobiliario m INNER JOIN tbl_salas s ON m.id_sala=s.id where id_sala=$salas";  
+        $sql="SELECT m.id,m.numero_mobiliario, m.img_mobiliario, m.estado_mobiliario FROM tbl_mobiliario m INNER JOIN tbl_salas s ON m.id_sala=s.id where id_sala=$salas";  
         $listaMobiliario = mysqli_query($conexion, $sql);         
-        return $listaMobiliario;
-
+        return $listaMobiliario->fetch_all(MYSQLI_ASSOC);
         
     }
 }

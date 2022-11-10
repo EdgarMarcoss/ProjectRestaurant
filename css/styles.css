@@ -205,22 +205,18 @@ body {
     transition: all .5s;
     transform: rotateY(180deg); 
 } */
-.tipo-sal.terraza {
+.salas.Terraza {
     background-image: url('../img/restaurante/terraza.jpg');
     background-position: center bottom;
 }
-.tipo-sal.terraza.remove > .blur > h2 {
+/* .salas.terraza.remove > .blur > h2 {
     display: none;
-}
-.tipo-sal.comedor {
+} */
+.salas.Comedor {
     background-image: url('../img/restaurante/comedor.jpg');
 }
-.tipo-sal.privada {
+.salas.Privada {
     background-image: url('../img/restaurante/privada.jpg');
-}
-.tipo-sal.secundaria {
-    background-image: url('../img/restaurante/baja.jpg');
-    background-position: right bottom;
 }
 .blur {
     display: flex;
@@ -228,17 +224,25 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: row;
-    background-color: rgba(255, 255, 255, .5);
+    background-color: rgba(167, 167, 167, .5);
     backdrop-filter: blur(2px);
     width: 100%;
     height: 100%;
 }
-.salas {
+.salas, .content {
     width: 33.333%;
     height: 200px;
-    border: 1px solid black;
+    /* height: fit-content; */
+    /* border: 1px solid black; */
     background-size: cover;
     transition: all 0.7s;
+    border: none;
+
+}
+.salas {
+    /* margin: 5px; */
+    width: 100%;
+    border: 1px solid black;
 }
 .salas.minimas {
     width: 33.3333%;
@@ -253,12 +257,14 @@ body {
     justify-content: center;
     text-align: center;
     align-content: center;
+    /* margin: 5px; */
 }
 .tipo {
     display: contents;
 }
 .salas .blur > * {
     width: 100%;
+    font-size: 23px;
 }
 
 .info-salas {
@@ -267,10 +273,44 @@ body {
     transition: all .7s;
 }
 .info-salas.mostrar {
+    font-size: 18px;
+    font-weight: bold;
     display: block;
     opacity: 1;
     transform: rotateY(180deg);
 }
+
+.btn-salas {
+    background-color: #FAAC58;
+    /* border: thin solid black; */
+    border: none;
+    box-shadow: black 0px 0px 20px 2px;
+    padding: 7px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.form-res {
+    text-align: center;
+}
+#final-reserva {
+    margin-top: 20px;
+    font-size: 20px;
+}
+/* FIN RESTAURANTE */
+
+/* PAGINA SALAS */
+
+.img-svg {
+    /* width: 100%; */
+    /* height: 100%; */
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+    cursor: pointer;
+    transform: rotate(90deg);
+}
+
+/* FIN SALAS */
 
 /* MODAL */
 
@@ -285,16 +325,20 @@ body {
     left: 0;
     background: rgba(0,0,0,0.8);
     z-index: 99999;
-    opacity:0;
+    /* opacity:0; */
     -webkit-transition: opacity 400ms ease-in;
     -moz-transition: opacity 400ms ease-in;
     transition: opacity 400ms ease-in;
-    pointer-events: none;
+    /* pointer-events: none; */
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
 }
-.modalmask:target {
+/* .modalmask:target {
     opacity:1;
     pointer-events: auto;
-}
+} */
 .modalbox{
     width: 400px;
     position: relative;
@@ -304,7 +348,12 @@ body {
     -webkit-transition: all 500ms ease-in;
     -moz-transition: all 500ms ease-in;
     transition: all 500ms ease-in;
+    
+}
 
+.contenido.modalbox > form .reservar {
+    /* padding: 0px 10px; */
+    padding-top: 0 !important;
 }
 
 .movedown {
@@ -319,7 +368,6 @@ body {
     margin: 10% auto;
     width:0;
     height:0;
-
 }
 .modalmask:target .movedown{
     margin:10% auto;
@@ -328,7 +376,6 @@ body {
     transform: rotate(360deg) scale(1,1);
     -webkit-transform: rotate(360deg) scale(1,1);
 }
-
 .modalmask:target .resize{
     width:400px;
     height:200px;
@@ -354,6 +401,51 @@ body {
 }
 /* FIN MODAL */
 
+.volver-btn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 20px;
+    font-size: 30px;
+    color: black;
+}
 
-
+.fondo-mesas {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    background: linear-gradient(37deg,rgb(37, 206, 37), rgb(48, 197, 217));
+}
+.fondo-mesas .limites {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.fondo-mesas .tarjeta {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    /* margin: 0px 20px; */
+}
+.tarjeta > form {
+    width: 100%;
+    margin: 0px 20px;
+    text-align: center;
+    background-color: white;
+}
+.ocupado {
+    -webkit-filter: invert(33%) sepia(98%) saturate(7468%) hue-rotate(358deg) brightness(93%) contrast(119%);
+    filter: invert(33%) sepia(98%) saturate(7468%) hue-rotate(358deg) brightness(93%) contrast(119%);
+}
+.mantenimiento {
+    -webkit-filter: invert(33%) sepia(98%) saturate(7468%) hue-rotate(358deg) brightness(93%) contrast(119%);
+    filter: invert(33%) sepia(5%) saturate(7408%) hue-rotate(0deg) brightness(100%) contrast(300%);
+}
+/* .default {
+    -webkit-filter: invert(33%) sepia(98%) saturate(7468%) hue-rotate(358deg) brightness(93%) contrast(119%);
+    filter: invert(33%) sepia(5%) saturate(7408%) hue-rotate(0deg) brightness(100%) contrast(300%);
+} */
 /* FIN PAGINA RESTAURANTE */

@@ -15,4 +15,11 @@ window.addEventListener('load', () => {
             s.item(i).getElementsByTagName('h3')[0].classList.toggle('info-salas');
         }
     }
+    // document.getElementsByClassName('hola')[0].onclick = () => {
+    //     alert('img');
+    // }
+    // document.getElementsByClassName('hola')[0].addEventListener('click', () => {
+    //     alert('img');
+    // })
+    
 })
