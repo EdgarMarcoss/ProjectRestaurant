@@ -284,19 +284,30 @@ body {
 }
 .btn-reservas {
     position: absolute;
-    top: 50%;
+    bottom: 0;
     left: 0;
+    margin-bottom: 4%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
 }
 .btn-reservas button {
     width: 150px;
     height: 50px;
     font-size: 20px;
     margin-left: 10px;
-    background-color: #58e7fa;
-    border: thin solid #000;
+    background: linear-gradient(37deg,rgb(162, 243, 254), rgb(48, 197, 217));
+    border: 0 solid #000;
+    box-shadow: green 1px 1px 10px ;
     font-weight: bold;
     border-radius: 15px;
     cursor: pointer;
+}
+#all-salas {
+    padding: 0 15px;
+    height: auto;
+    width: fit-content;
 }
 #final-reserva {
     margin-top: 20px;
@@ -481,15 +492,6 @@ body {
         background-size: cover;
         transition: all 0.7s;
         border: none;
-    }
-    .btn-reservas {
-        top: auto;
-        bottom: 0;
-        margin-bottom: 6%;
-        display: flex;
-        width: 100%;
-        justify-content: center;
-        text-decoration: none;
     }
     .btn-reservas button {
         margin: 0;
