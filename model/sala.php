@@ -65,4 +65,13 @@ class Sala {
         $listaSalas = mysqli_query($conexion, $sql);
         return $listaSalas->fetch_all(MYSQLI_ASSOC); 
     }
+
+
+    public static function getSalaEst(){
+
+        include 'conexion.php';
+        $sql="SELECT count(s.id) as `Mid` FROM tbl_salas s INNER JOIN tbl_mobiliario ON s.id = m.id_sala INNER JOIN tbl_reserva m.id = r.id_mobiliario";  
+        $listaSalas = mysqli_query($conexion, $sql);
+        return $listaSalas; 
+    }
 }
