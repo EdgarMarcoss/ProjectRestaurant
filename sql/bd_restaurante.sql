@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-11-2022 a las 16:59:38
+-- Tiempo de generación: 11-11-2022 a las 17:33:26
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 7.4.29
 
@@ -57,10 +57,15 @@ CREATE TABLE `tbl_mobiliario` (
 
 INSERT INTO `tbl_mobiliario` (`id`, `numero_mobiliario`, `tipo_mobiliario`, `estado_mobiliario`, `capacidad_mesa`, `img_mobiliario`, `id_sala`) VALUES
 (1, '1', 'mesa', 'libre', '2', 'mesa_2.svg', 15),
-(2, '2', 'mesa', 'libre', '2', 'mesa_2.svg', 15),
+(2, '2', 'mesa', 'mantenimento', '2', 'mesa_2.svg', 15),
 (3, '1', 'mesa', 'libre', '4', 'mesa_4.svg', 18),
 (4, '2', 'mesa', 'libre', '4', 'mesa_4.svg', 18),
-(5, '1', 'mesa', 'libre', '4', 'mesa_4.svg', 13);
+(5, '1', 'mesa', 'ocupado', '4', 'mesa_4.svg', 13),
+(6, '1', 'mesa', 'mantenimento', '8', 'mesa_8.svg', 16),
+(7, '1', 'mesa', 'ocupado', '4', 'mesa_4.svg', 18),
+(8, '1', 'mesa', 'ocupado', '2', 'mesa_2.svg', 14),
+(9, '3', 'mesa', 'ocupado', '8', 'mesa_8.svg', 15),
+(10, '1', 'mesa', 'libre', '4', 'mesa_4.svg', 17);
 
 -- --------------------------------------------------------
 
@@ -76,6 +81,15 @@ CREATE TABLE `tbl_reserva` (
   `id_usuario` int(11) NOT NULL,
   `id_mobiliario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `tbl_reserva`
+--
+
+INSERT INTO `tbl_reserva` (`id`, `fecha_reserva`, `fecha_desocupacion`, `nombre_reserva`, `id_usuario`, `id_mobiliario`) VALUES
+(34, '2022-11-10 17:33:42', '', 'Fabri', 1, 5),
+(35, '2022-11-11 11:34:00', '2022-11-11 11:34:52', 'prueba', 1, 3),
+(36, '2022-11-11 11:34:47', '', 'Edgar', 1, 7);
 
 -- --------------------------------------------------------
 
@@ -178,13 +192,13 @@ ALTER TABLE `tbl_incidencia`
 -- AUTO_INCREMENT de la tabla `tbl_mobiliario`
 --
 ALTER TABLE `tbl_mobiliario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_reserva`
 --
 ALTER TABLE `tbl_reserva`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_salas`

@@ -23,14 +23,13 @@
     ?>
     
     <!-- Estadisticas Salas -->  
-  
+    <script>var chart;</script>
     
-    </script>
     <canvas id="myChart"></canvas>
-    <script src="chart.js"></script>
+    <!-- <script src="chart.js"></script> -->
     <script>
         var ctx = document.getElementById('myChart').getContext('2d');
-        var chart = new Chart(ctx, {
+        chart = new Chart(ctx, {
             type: 'doughnut',
             data: {
                 datasets: [{
@@ -52,8 +51,7 @@
                 responsive: true
             }
         });  
-        chart.clear();	
-        chart.destroy();
+        // chart.destroy();
     </script>
 
   
@@ -61,13 +59,15 @@
 
     <!-- Estadísticas Mesas -->
     <?php
-    foreach ($listaSalas as $salas) {
+    // foreach ($listaSalas as $salas) {
          ?>
-    <canvas id="myChart"></canvas>
-    <script src="chart.js"></script>
+    <!-- <canvas id="myChart"></canvas> -->
+    <!-- <script src="chart.js"></script> -->
     <script>
-        var ctx = document.getElementById('myChart').getContext('2d');
-        var chart = new Chart(ctx, {
+        // chart.clear();
+        // chart.destroy();
+        ctx = document.getElementById('myChart').getContext('2d');
+        chart = new Chart(ctx, {
             type: 'doughnut',
             data: {
                 datasets: [{
@@ -90,7 +90,7 @@
         });
     </script>
     <?php
-    }
+    // }
     ?>    
 </body>
 
