@@ -125,14 +125,16 @@ class Reserva {
         $where = "";
         require_once "conexion.php";
         $sql="SELECT r.id,r.fecha_reserva,r.fecha_desocupacion,s.nombre_sala,u.nombre_usuario,m.numero_mobiliario FROM tbl_reserva r INNER JOIN tbl_usuarios u ON r.id_usuario=u.id INNER JOIN tbl_mobiliario m ON m.id=r.id_mobiliario INNER JOIN tbl_salas s ON m.id_sala=s.id where r.fecha_desocupacion != ''  $where";  
-        $listaReserva = mysqli_query($conexion, $sql);  
+        $listaReserva = mysqli_query($conexion, $sql);
+        $listaReserva=$listaReserva->fetch_all(MYSQLI_ASSOC); 
         return $listaReserva;      
     }
     public static function getReservaActual(){     
         $where = "";
         require_once "conexion.php";
         $sql="SELECT r.id,r.fecha_reserva,r.fecha_desocupacion,s.nombre_sala,u.nombre_usuario,m.numero_mobiliario FROM tbl_reserva r INNER JOIN tbl_usuarios u ON r.id_usuario=u.id INNER JOIN tbl_mobiliario m ON m.id=r.id_mobiliario INNER JOIN tbl_salas s ON m.id_sala=s.id where r.fecha_desocupacion = ''  $where";  
-        $listaReserva = mysqli_query($conexion, $sql);  
+        $listaReserva = mysqli_query($conexion, $sql);
+        $listaReserva=$listaReserva->fetch_all(MYSQLI_ASSOC);  
         return $listaReserva;      
     }          
     
