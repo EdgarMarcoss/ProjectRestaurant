@@ -124,4 +124,15 @@ class Mobiliario {
         return $listaMobiliario->fetch_all(MYSQLI_ASSOC);
         
     }
+
+    public static function getMobiliarioEst(){  
+
+        include 'conexion.php';
+        $sql="SELECT s.nombre_sala,id_mobiliario,count(m.id) as `Mid`,m.numero_mobiliario FROM tbl_mobiliario m INNER JOIN tbl_reserva r ON m.id=r.id_mobiliario INNER JOIN tbl_salas s ON s.id=m.id_sala Group by id_mobiliario";  
+        $listaMobiliario2 = mysqli_query($conexion, $sql);         
+        return $listaMobiliario2->fetch_all(MYSQLI_ASSOC);
+
+    }
+
+   
 }
