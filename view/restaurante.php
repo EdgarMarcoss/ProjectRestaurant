@@ -15,11 +15,11 @@ if (!isset($_SESSION['user'])) {
     <title>Restaurante</title>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light"> -->
     <!-- <div class="navbar-nav"> -->
         <a class="log-out" aria-current="page" href="../controller/logout.php"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>         
     <!-- </div> -->
-  </nav>
+  <!-- </nav> -->
     <div class="background">
         <div class="contenido restaurante">
             <!-- Mostrar todos los sitios/salas -->
@@ -28,14 +28,21 @@ if (!isset($_SESSION['user'])) {
             $vuelta = 0;
             
             foreach (Sala::getSala() as $element) {
-                // var_dump(explode(" ", $element["nombre_sala"])[0]);
                 echo '<div class="content">';
                 echo '<div class="salas '.explode("_", $element["nombre_sala"])[0].'">
                             <div class="blur">
                                 <h3>'.str_replace("_", " ", $element["nombre_sala"]).'</h3>
                                 <div class="info-salas">
+                                    <h4>'.str_replace("_", " ", $element["nombre_sala"]).'</h4>
                                     <p>Mesas totales: '.$element["Mid"].'</p>
-                                    <p>Mesas disponibles: '.Sala::getMesaLibre()[$vuelta]["Mid"].'</p>
+                                    <p>Mesas disponibles: ';
+                                    if (Sala::getMesaLibre()[$vuelta]["nombre_sala"] == $element["nombre_sala"]) {
+                                        $disponible = Sala::getMesaLibre()[$vuelta]["Mid"];
+                                        $vuelta++;
+                                    } else {
+                                        $disponible = "0";
+                                    }
+                                    echo $disponible.'</p>
                                     <form action="sala.php" method="post" class="ver">
                                         <input type="hidden" name="sala" value="'.$element['id'].'">
                                         <button type="submit" class="btn-salas">Ver</button>
@@ -44,9 +51,8 @@ if (!isset($_SESSION['user'])) {
                             </div>
                         </div>';
                 echo '</div>';
-
-                        $vuelta++;
-            } ?>                
+            } ?>
+            <a class="btn-reservas" href="vista.php"><button>Reservas</button></a>  
         </div>
         <div class="color-back ">
             <div class="modal">

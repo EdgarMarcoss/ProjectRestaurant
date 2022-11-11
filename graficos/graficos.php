@@ -16,14 +16,16 @@
     <?php
         session_start();
         include '../model/sala.php';
-        $listaSalas=Sala::getSala();               
+        $listaSalas=Sala::getSalaEst();               
 
-        include '../model/mobiliario.php';        
-        $listaMobiliario=Mobiliario::getMobiliario($salas);
-        $listaMobiliario2=Mobiliario::getMobiliarioEst($salas);
+        include '../model/mobiliario.php';     
+        $listaMobiliario=Mobiliario::getMobiliarioEst();
     ?>
     
-    <!-- Estadisticas Salas -->    
+    <!-- Estadisticas Salas -->  
+  
+    
+    </script>
     <canvas id="myChart"></canvas>
     <script src="chart.js"></script>
     <script>
@@ -32,25 +34,35 @@
             type: 'doughnut',
             data: {
                 datasets: [{
-                    data: [ <?php foreach ($listaMobiliario2 as $mobiliario) {
-                        echo "<td>{$mobiliario['Mid']}</td>"; 
+                    data: [ <?php foreach ($listaSalas as $salas) {
+                        echo $salas['Mid'];
+                        echo  ",";
                     } ?> ],
                     backgroundColor: ['#42a5f5', 'red', 'green', 'blue', 'violet'],
                     label: 'Comparacion de navegadores'
                 }],
-                labels: [<?php foreach($listaMobiliario as $mobiliario){
+                labels: [<?php foreach($listaSalas as $salas){
 
-                    echo "<td>{$mobiliario['numero_mobiliario']}</td>"; 
+                        echo "'{$salas['nombre_sala']}',";
+                        
 
                 } ?> ]
             },
             options: {
                 responsive: true
             }
-        });
+        });  
+        chart.clear();	
+        chart.destroy();
     </script>
+
+  
+
 
     <!-- Estadísticas Mesas -->
+    <?php
+    foreach ($listaSalas as $salas) {
+         ?>
     <canvas id="myChart"></canvas>
     <script src="chart.js"></script>
     <script>
@@ -59,15 +71,16 @@
             type: 'doughnut',
             data: {
                 datasets: [{
-                    data: [ <?php foreach ($listaMobiliario2 as $mobiliario) {
-                        echo "<td>{$mobiliario['Mid']}</td>"; 
+                    data: [ <?php foreach ($listaMobiliario as $mobiliario) {
+                         echo $mobiliario['Mid'];
+                         echo  ",";
                     } ?> ],
                     backgroundColor: ['#42a5f5', 'red', 'green', 'blue', 'violet'],
                     label: 'Comparacion de navegadores'
                 }],
                 labels: [<?php foreach($listaMobiliario as $mobiliario){
 
-                    echo "<td>{$mobiliario['numero_mobiliario']}</td>"; 
+                        echo "'{$mobiliario['numero_mobiliario']}',";
 
                 } ?> ]
             },
@@ -76,9 +89,9 @@
             }
         });
     </script>
-
-
-    
+    <?php
+    }
+    ?>    
 </body>
 
 </html>
