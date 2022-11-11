@@ -23,14 +23,13 @@
     ?>
     
     <!-- Estadisticas Salas -->  
-  
+    <script>var chart;</script>
     
-    </script>
     <canvas id="myChart"></canvas>
-    <script src="chart.js"></script>
+    <!-- <script src="chart.js"></script> -->
     <script>
         var ctx = document.getElementById('myChart').getContext('2d');
-        var chart = new Chart(ctx, {
+        chart = new Chart(ctx, {
             type: 'doughnut',
             data: {
                 datasets: [{
@@ -85,11 +84,7 @@
 
                      if ($salas['id_sala']==$mobiliario['id_sala']) {
                         echo "'{$mobiliario['numero_mobiliario']}',"; 
-                     }
-                        
-
-                        
-                        
+                     }                  
 
                 } ?> ]
             },
