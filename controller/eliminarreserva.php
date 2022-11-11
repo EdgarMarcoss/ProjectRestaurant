@@ -8,7 +8,7 @@
     }
 
    
-    
+    die;
     echo"<script>window.location.href = '../view/sala.php' </script>";
 
 

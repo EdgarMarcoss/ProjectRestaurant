@@ -15,11 +15,11 @@ if (!isset($_SESSION['user'])) {
     <title>Restaurante</title>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light"> -->
     <!-- <div class="navbar-nav"> -->
         <a class="log-out" aria-current="page" href="../controller/logout.php"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>         
     <!-- </div> -->
-  </nav>
+  <!-- </nav> -->
     <div class="background">
         <div class="contenido restaurante">
             <!-- Mostrar todos los sitios/salas -->
@@ -33,6 +33,7 @@ if (!isset($_SESSION['user'])) {
                             <div class="blur">
                                 <h3>'.str_replace("_", " ", $element["nombre_sala"]).'</h3>
                                 <div class="info-salas">
+                                    <h4>'.str_replace("_", " ", $element["nombre_sala"]).'</h4>
                                     <p>Mesas totales: '.$element["Mid"].'</p>
                                     <p>Mesas disponibles: ';
                                     if (Sala::getMesaLibre()[$vuelta]["nombre_sala"] == $element["nombre_sala"]) {
@@ -50,7 +51,6 @@ if (!isset($_SESSION['user'])) {
                             </div>
                         </div>';
                 echo '</div>';
-
             } ?>
             <a class="btn-reservas" href="vista.php"><button>Reservas</button></a>  
         </div>
