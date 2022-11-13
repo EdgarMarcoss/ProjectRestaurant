@@ -251,6 +251,7 @@ body {
     background-color: rgba(255,255,255,0.4);
     padding: 10px;
     border-radius: 10px;
+    /* backdrop-filter: blur(5px); */
 }
 
 .info-salas {
@@ -322,8 +323,8 @@ body {
     /* height: 100%; */
     border: none;
     background-color: rgba(0, 0, 0, 0);
-    cursor: pointer;
-    transform: rotate(90deg);
+    cursor: auto !important;
+    /* transform: rotate(90deg); */
 }
 
 /* FIN SALAS */
@@ -440,16 +441,61 @@ body {
     display: flex;
     flex-wrap: wrap;
 }
+.fondo-mesas .limites.terraza {
+    width: 90%;
+    display: grid;
+    grid-template-areas:
+    '1 2 3 4';
+    justify-content: space-around;
+}
+.m-ini { grid-area: ini;}
+.m-fin { grid-area: fin;}
+.fondo-mesas .limites.comedor {
+    width: 90%;
+    max-height: 81%;
+    display: grid;
+    grid-template-areas:
+    'ini ini 2 3 4'
+    '5 6 7 fin fin';
+    align-items: center;
+    justify-items: center;
+    overflow: hidden;
+}
+.fondo-mesas .limites.comedor > * {
+    width: auto;
+    max-height: 300px;
+}
+.fondo-mesas .limites.comedor > * img {
+    width: 80%;
+    cursor: pointer;
+    z-index: 10;
+}
+.fondo-mesas .limites.comedor > *:first-child img:first-child, .fondo-mesas .limites.comedor > *:last-child img:first-child {
+    width: 88%;
+    height: 440px;
+}
+.fondo-mesas .limites.privada {
+    width: 90%;
+    max-height: 81%;
+    display: grid;
+    grid-template-areas:
+    '1 2 3 4 5 6';
+    align-items: center;
+    justify-items: center;
+    overflow: hidden;
+}
 .fondo-mesas .tarjeta {
-    width: 50%;
+    /* width: 50%; */
     display: flex;
+    align-items: center;
     justify-content: center;
     /* margin: 0px 20px; */
 }
 .tarjeta > form {
-    width: 100%;
-    margin: 0px 20px;
+    /* width: 100%; */
+    /* margin: 0px 20px; */
     text-align: center;
+    overflow: hidden;
     /* background-color: white; */
 }
 .ocupado {

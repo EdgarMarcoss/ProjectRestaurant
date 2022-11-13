@@ -1,8 +1,8 @@
 window.addEventListener('load', () => {
-    document.getElementById('activa').classList.add('active')
-    ver(document.getElementById('activa').value)
+    if (document.getElementsByClassName('active') && document.getElementById('activa')) {
+    document.getElementById('activa').classList.add('active');
+    ver(document.getElementById('activa').value);
 
-    if (document.getElementsByClassName('active')) {
         document.getElementById('activa').onclick = () => {
             document.getElementById('finalizar').classList.remove('active');
             document.getElementById('activa').classList.add('active');
