@@ -1,3 +1,13 @@
+<?php
+session_start();
+if(empty($_SESSION['user'])){
+
+    echo "<script>location.href='../index.php'</script>";
+    
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
