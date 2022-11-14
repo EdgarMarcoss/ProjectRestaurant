@@ -19,7 +19,7 @@
                     <button type="button" name="estadis" value="estadis" id="estadis" class="btn btn-default">Estadísticas</button>
                 </div>
             </div>
-                <a href="./restaurante.php" class="btn btn-default"><i class="fa-regular fa-circle-left"></i></a>
+                <a href="./restaurante.php" class="btn btn-default back"><i class="fa-regular fa-circle-left"></i></a>
 
             <tr>
                 <form id="filter" class="d-flex" role="search">
