@@ -10,7 +10,7 @@
     <script src="js/estilos.js"></script>
     <title>Login</title>
 </head>
-<body>
+<body class="img-back">
     <div class="background">
         <?php
         if(isset($_GET['error'])){
@@ -41,7 +41,7 @@
                 </div>
                 <div>
                     <label for="">Contraseña</label>
-                    <input id="pass" type="password" placeholder="qweQWE123" onblur="validPass()" name="pass" required >
+                    <input id="pass" type="password" onblur="validPass()" name="pass" required >
                     <p id="mensaje2"></p>
                 </div>
                 <input type="submit"  id="submit" class="btn-login" value="Entrar" >

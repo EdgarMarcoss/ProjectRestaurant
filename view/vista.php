@@ -5,14 +5,22 @@
     require_once './cabezera.html';
     session_start();
     ?>
+    <script src="https://code.jquery.com/jquery-3.6.1.slim.min.js" integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA=" crossorigin="anonymous"></script>
+    <script src="../js/carga.js"></script>
 </head>
 <body>
+    <div class="loader-page"></div>
     <table class="table" style="text-align: center;" id="test">
         <thead>
             <div class="btn-group">
-                <button type="button" value="activa" id="activa" class="btn btn-default">Reservas activas</button>
-                <button type="button" value="finalizar" id="finalizar" class="btn btn-default">Reservas finalizadas</button>
-                <button type="button" name="estadis" value="estadis" id="estadis" class="btn btn-default">Estadísticas</button>
+                <div>
+                    <button type="button" value="activa" id="activa" class="btn btn-default">Reservas activas</button>
+                    <button type="button" value="finalizar" id="finalizar" class="btn btn-default">Reservas finalizadas</button>
+                    <button type="button" name="estadis" value="estadis" id="estadis" class="btn btn-default">Estadísticas</button>
+                </div>
+                <div>
+                    <a href="./restaurante.php" class="btn btn-default"><i class="fa-regular fa-circle-left"></i></a>
+                </div>
             </div>
 
             <tr>

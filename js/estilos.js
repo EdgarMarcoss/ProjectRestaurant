@@ -1,5 +1,12 @@
 window.addEventListener('load', () => {
 
+    if (document.getElementsByClassName('carga')[0]) {
+        document.getElementsByClassName('carga')[0].classList.add('normal');
+        setTimeout(function(){
+            document.getElementsByClassName('carga')[0].classList.remove('normal');
+        }, 3000);
+    }
+
     if (document.getElementsByClassName('error-msg')[0]) {
         document.getElementsByClassName('error-msg')[0].classList.add('animation-error');
         setTimeout(function(){

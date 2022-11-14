@@ -59,6 +59,11 @@ body {
 body.resp-scroll {
     overflow: auto;
 }
+.img-back {
+    background-image: url('../img/restaurante/carga.jpg');
+    background-size: cover;
+    background-position: center;
+}
 .background {
     width: 100vw;
     height: 100vh;
@@ -66,7 +71,7 @@ body.resp-scroll {
     align-items: center;
     justify-content: center;
     /* background-color: rgb(251, 251, 251); */
-    background: linear-gradient(37deg,rgb(37, 206, 37), rgb(48, 197, 217));
+    background: linear-gradient(37deg,rgba(37, 206, 37,.8), rgb(48, 197, 217));
 }
 .contenido {
     padding: 20px;
@@ -222,7 +227,8 @@ body.resp-scroll {
     /* border: 1px solid black; */
     background-size: cover;
     transition: all 0.7s;
-    border: none;
+    border: 2.5px solid rgba(0,0,0,0);
+    margin-bottom: 5px;
 
 }
 .salas {
@@ -514,9 +520,73 @@ body.resp-scroll {
     filter: invert(33%) sepia(5%) saturate(7408%) hue-rotate(0deg) brightness(100%) contrast(300%);
 } */
 /* FIN PAGINA RESTAURANTE */
-
+.loader-page {
+    position: fixed;
+    z-index: 25000;
+    background-image: url('../img/restaurante/carga.jpg');
+    background-size: cover;
+    background-position: center;
+    background: linear-gradient(37deg,rgb(105, 255, 105), rgb(76, 234, 255));
+    left: 0px;
+    top: 0px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition:all .3s ease;
+  }
+  .loader-page::before {
+    content: "";
+    position: absolute;
+    border: 10px solid rgb(255, 255, 255);
+    width: 65px;
+    height: 65px;
+    border-radius: 12%;
+    box-sizing: border-box;
+    /* border-left: 2px solid rgba(50, 150, 176,0); */
+    /* border-top: 2px solid rgba(50, 150, 176,0); */
+    animation: rotarload 2.5s linear infinite;
+    /* transform: rotate(0deg); */
+  }
+  @keyframes rotarload {
+      0%   {transform: rotate(0deg)}
+      25%   {transform: rotate(180deg)}
+      50% {transform: rotate(180deg)}
+      75% {transform: rotate(360deg)}
+      100% {transform: rotate(360deg)}
+  }
+  .loader-page::after {
+    content: "";
+    position: absolute;
+    border: 10px solid rgba(0, 0, 0, .85);
+    width: 80px;
+    height: 80px;
+    border-radius: 12%;
+    box-sizing: border-box;
+    /* border-left: 2px solid rgba(50, 150, 176, 0); */
+    /* border-top: 2px solid rgba(50, 150, 176, 0); */
+    animation: rotarload2 2.5s ease-out infinite;
+    transform: rotate(180deg);
+  }
+  @keyframes rotarload2 {
+    0%   {transform: rotate(0deg)}
+    25%   {transform: rotate(180deg)}
+    50% {transform: rotate(180deg)}
+    75% {transform: rotate(360deg)}
+    100% {transform: rotate(360deg)}
+}
 /* TABLA RESERVAS */
 
+.btn-group {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.btn-group > * {
+    width: fit-content;
+}
 .active {
     background-color: #c5c5c5 !important;
     border: none;

@@ -11,9 +11,12 @@ include 'cabezera.html';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.1.slim.min.js" integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA=" crossorigin="anonymous"></script>
+    <script src="../js/carga.js"></script>
     <title>Document</title>
 </head>
 <body>
+    <div class="loader-page"></div>
     <a href="restaurante.php" class="volver-btn"><i class="fa-solid fa-circle-left"></i></a>
     <div class="fondo-mesas">
         <div class="limites">
