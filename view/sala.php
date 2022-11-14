@@ -1,9 +1,7 @@
 <?php
 session_start();
 if(empty($_SESSION['user'])){
-
     echo "<script>location.href='../index.php'</script>";
-    
 }
 if (isset($_POST['sala'])) {
     $_SESSION['id_sala'] = $_POST['sala'];
