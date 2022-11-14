@@ -13,14 +13,18 @@ include 'cabezera.html';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-3.6.1.slim.min.js" integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA=" crossorigin="anonymous"></script>
     <script src="../js/carga.js"></script>
-    <title>Document</title>
+    <title>Sala</title>
 </head>
-<body>
+<body class="img-back">
     <div class="loader-page"></div>
+    <nav>
+        <h3><?php echo $_POST['nsala'] ?></h3>
+    </nav>
     <a href="restaurante.php" class="volver-btn"><i class="fa-solid fa-circle-left"></i></a>
     <div class="fondo-mesas">
         <div class="limites">
         <?php 
+        
         require_once '../model/mobiliario.php';
         foreach (Mobiliario::getMobiliario($_SESSION['id_sala']) as $mesa) {
             echo '<div class="tarjeta">';
@@ -75,5 +79,8 @@ include 'cabezera.html';
         </div>
     </div>
     <?php }};?>
+    <div class="btn-reservas sala">
+        <a href="vista.php"><button>Reservas</button></a>
+    </div>
 </body>
 </html>

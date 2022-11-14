@@ -70,13 +70,16 @@ body.resp-scroll {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: absolute;
+    top: 0;
     /* background-color: rgb(251, 251, 251); */
-    background: linear-gradient(37deg,rgba(37, 206, 37,.8), rgb(48, 197, 217));
+    background: rgba(244,159,130, .8);
+    backdrop-filter: blur(2px);
 }
 .contenido {
     padding: 20px;
     border: 2px solid black;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(251, 251, 251);
     border-radius: 20px;
     color: black;
     max-width: 400px;
@@ -139,15 +142,15 @@ body.resp-scroll {
     font-size: 18px;
     width: 100%;
     padding: 5px;
-    /* outline: 1px solid rgb(115, 190, 237); */
     /* background: linear-gradient(37deg,rgb(37, 206, 37), rgb(48, 197, 217)); */
-    border: 1px solid rgb(115, 190, 237);
+    background: white;
+    border: 1px solid rgba(244,159,130, .8);
 }
 
 .contenido form input.btn-login {
     width: fit-content !important;
-    background: linear-gradient(37deg,rgb(37, 206, 37), rgb(48, 197, 217));
-    color: white;
+    background: rgba(244,159,130, .8);
+    color: black;
     padding: 8px 25px;
     border: none;
     outline: none;
@@ -165,13 +168,33 @@ body.resp-scroll {
 
 /* PAGINA RESTAURANTE */
 
+nav {
+    width: 100%;
+    position: relative;
+    z-index: 5;
+    background-color: #585e5c;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    height: fit-content;
+}
+nav h3 {
+    width: 100%;
+    color: #dce0e3;
+    margin: 0;
+    padding: 15px 0;
+    font-weight: bold;
+    /* height: 20px; */
+}
 .log-out {
     position: absolute;
+    /* height: 10%; */
     top: 0;
     right: 0;
-    margin: 20px;
+    z-index: 5;
+    margin: 15px;
     font-size: 25px;
-    color: black;
+    color: white;
     transition: all 3s;
 }
 .log-out:hover i:before {
@@ -257,10 +280,10 @@ body.resp-scroll {
 .salas .blur > * {
     /* width: 100%; */
     font-size: 23px;
-    background-color: rgba(255,255,255,0.4);
+    background-color: rgba(220,224,227, .8);
     padding: 10px;
     border-radius: 10px;
-    /* backdrop-filter: blur(5px); */
+    backdrop-filter: blur(1px);
 }
 
 .info-salas {
@@ -280,7 +303,7 @@ body.resp-scroll {
 }
 
 .btn-salas {
-    background-color: #FAAC58;
+    background-color: #f08362;
     /* border: thin solid black; */
     border: none;
     box-shadow: black 0px 0px 20px 2px;
@@ -292,7 +315,7 @@ body.resp-scroll {
 .form-res {
     text-align: center;
 }
-.btn-reservas {
+.btn-reservas, .btn-reservas.sala {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -302,14 +325,17 @@ body.resp-scroll {
     justify-content: center;
     text-decoration: none;
 }
+.btn-reservas.sala {
+    margin-bottom: 20px;
+}
 .btn-reservas button {
     width: 150px;
     height: 50px;
     font-size: 20px;
     margin-left: 10px;
-    background: linear-gradient(37deg,rgb(162, 243, 254), rgb(48, 197, 217));
+    background: #dce0e3;
     border: 0 solid #000;
-    box-shadow: green 1px 1px 10px ;
+    box-shadow: #dce0e3 1px 1px 10px ;
     font-weight: bold;
     border-radius: 15px;
     cursor: pointer;
@@ -328,12 +354,8 @@ body.resp-scroll {
 /* PAGINA SALAS */
 
 .img-svg {
-    /* width: 100%; */
-    /* height: 100%; */
     border: none;
     background-color: rgba(0, 0, 0, 0);
-    cursor: auto !important;
-    /* transform: rotate(90deg); */
 }
 
 /* FIN SALAS */
@@ -431,24 +453,39 @@ body.resp-scroll {
     position: absolute;
     top: 0;
     left: 0;
-    padding: 20px;
+    padding: 17px;
     font-size: 30px;
-    color: black;
+    color: white;
+    z-index: 5;
+    transition: all 0.3s;
+}
+.volver-btn:hover {
+    color: #fff;
+    transform: scale(1.15);
 }
 
 .fondo-mesas {
+    background-image: url('../img/restaurante/carga.jpg');
+    background-size: cover;
+    background-position: center;
     width: 100vw;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    background: linear-gradient(37deg,rgb(37, 206, 37), rgb(48, 197, 217));
+    position: absolute;
+    top: 0;
+    background: rgba(244,159,130, .8);
+    backdrop-filter: blur(1px);
 }
 .fondo-mesas .limites {
     width: 80%;
     display: flex;
     flex-wrap: wrap;
+    background-image: url('../img/restaurante/back.jpg');
+    background-size: 10%;
+    border-radius: 20px;
 }
 .fondo-mesas .limites.terraza {
     width: 90%;
@@ -472,7 +509,7 @@ body.resp-scroll {
 }
 .fondo-mesas .limites.comedor > * {
     width: auto;
-    max-height: 300px;
+    max-height: 270px;
 }
 .fondo-mesas .limites.comedor > * img {
     width: 80%;
@@ -499,6 +536,7 @@ body.resp-scroll {
     align-items: center;
     justify-content: center;
     /* margin: 0px 20px; */
+    cursor: pointer;
 }
 .tarjeta > form {
     /* width: 100%; */
@@ -526,7 +564,8 @@ body.resp-scroll {
     background-image: url('../img/restaurante/carga.jpg');
     background-size: cover;
     background-position: center;
-    background: linear-gradient(37deg,rgb(105, 255, 105), rgb(76, 234, 255));
+    /* background: linear-gradient(37deg,rgb(105, 255, 105), rgb(76, 234, 255)); */
+    background: #f6ae96;
     left: 0px;
     top: 0px;
     height: 100%;
@@ -559,7 +598,7 @@ body.resp-scroll {
   .loader-page::after {
     content: "";
     position: absolute;
-    border: 10px solid rgba(0, 0, 0, .85);
+    border: 10px solid #f08362;
     width: 80px;
     height: 80px;
     border-radius: 12%;
@@ -577,17 +616,65 @@ body.resp-scroll {
     100% {transform: rotate(360deg)}
 }
 /* TABLA RESERVAS */
-
+nav {
+    width: 100%;
+    position: relative;
+    z-index: 5;
+    background-color: #585e5c;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    height: fit-content;
+}
+nav h3 {
+    width: 100%;
+    color: #dce0e3;
+    margin: 0;
+    padding: 15px 0;
+    font-weight: bold;
+    /* height: 20px; */
+}
 .btn-group {
     width: 100%;
+    position: relative;
+    z-index: 5;
+    background-color: #585e5c;
+    border-radius: 0;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    height: fit-content;
+    justify-content: center;
+    
 }
 .btn-group > * {
-    width: fit-content;
+    /* width: fit-content; */
+    width: 50%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    height: fit-content;
 }
-.active {
+.btn-group > *:first-child button {
+    width: 100%;
+    color: white;
+    margin: 0;
+    padding: 18px 0;
+    font-weight: bold;
+    font-size: 18px;
+    /* height: 20px; */
+}
+.btn-group > div:last-child a {
+    /* width: 100%; */
+    color: #dce0e3;
+    /* margin: 0; */
+    /* padding: 18px 0; */
+    /* font-weight: bold; */
+    font-size: 25px;
+    /* height: 20px; */
+}
+button.active {
+    color: black !important;
     background-color: #c5c5c5 !important;
     border: none;
     border-radius: 0;
@@ -614,6 +701,36 @@ body.resp-scroll {
 
 /* RESPONSIVE */
 
+@media only screen and (max-width: 710px) {
+    .contenido.restaurante {
+        width: 80%;
+        height: 75vh;
+        overflow: auto;
+        scrollbar-base-color: #D8000C;
+    }
+    .contenido.restaurante::-webkit-scrollbar {
+        width: 8px;     /* Tamaño del scroll en vertical */
+        height: 8px;    /* Tamaño del scroll en horizontal */
+        display: none;  /* Ocultar scroll */
+    }
+    .content {
+        width: 50%;
+        height: 200px;
+        background-size: cover;
+        transition: all 0.7s;
+        border: none;
+        margin-bottom: 0;
+    }
+
+    .fondo-mesas .limites.privada {
+        max-height: 75%;
+        display: grid;
+        grid-template-areas:
+        '1 2';
+        overflow: auto;
+    }
+}
+
 @media only screen and (max-width: 420px) {
     .contenido.restaurante {
         width: 80%;
@@ -629,8 +746,47 @@ body.resp-scroll {
         transition: all 0.7s;
         border: none;
     }
-    .btn-reservas button {
-        margin: 0;
+
+    .contenido {
+        margin: 0 15px;
+    }
+    .fondo-mesas .limites.terraza {
+        width: 90%;
+        max-height: 75%;
+        display: grid;
+        grid-template-areas:
+        '1';
+        overflow: auto;
+    }
+    .fondo-mesas .limites.privada {
+        max-height: 75%;
+        display: grid;
+        grid-template-areas:
+        '1';
+        overflow: auto;
+    }
+    .tarjeta > form {
+        /* width: 100%; */
+        /* margin: 0px 20px; */
+        text-align: center;
+        overflow: hidden;
+        /* background-color: white; */
+    }
+    .fondo-mesas .limites.comedor {
+        width: 90%;
+        max-height: 75%;
+        display: grid;
+        grid-template-areas:
+        'ini'
+        '2'
+        'fin';
+        align-items: center;
+        justify-items: center;
+        overflow: auto;
+    }
+    .fondo-mesas .limites.comedor > *:first-child img:first-child, .fondo-mesas .limites.comedor > *:last-child img:first-child {
+        width: 88%;
+        height: 322px;
     }
 }
 

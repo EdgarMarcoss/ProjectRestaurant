@@ -19,13 +19,12 @@ if (!isset($_SESSION['user'])) {
 <body class="img-back">
     <div class="loader-page"></div>
 
-<!-- <body class="loader"> -->
-    <!-- <div class="loader"></div> -->
-<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light"> -->
-    <!-- <div class="navbar-nav"> -->
-        <a class="log-out" aria-current="page" href="../controller/logout.php"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>         
-    <!-- </div> -->
-  <!-- </nav> -->
+    <nav>
+        <h3>Salas</h3>
+    </nav>
+    <a class="log-out" aria-current="page" href="../controller/logout.php"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>   
+
+
     <div class="background">
         <div class="contenido restaurante">
             <!-- Mostrar todos los sitios/salas -->
@@ -50,6 +49,7 @@ if (!isset($_SESSION['user'])) {
                                     }
                                     echo $disponible.'</p>
                                     <form action="sala.php" method="post" class="ver">
+                                        <input type="hidden" name="nsala" value="'.str_replace("_", " ", $element["nombre_sala"]).'">
                                         <input type="hidden" name="sala" value="'.$element['id'].'">
                                         <button type="submit" class="btn-salas">Ver</button>
                                     </form>

@@ -18,10 +18,8 @@
                     <button type="button" value="finalizar" id="finalizar" class="btn btn-default">Reservas finalizadas</button>
                     <button type="button" name="estadis" value="estadis" id="estadis" class="btn btn-default">Estadísticas</button>
                 </div>
-                <div>
-                    <a href="./restaurante.php" class="btn btn-default"><i class="fa-regular fa-circle-left"></i></a>
-                </div>
             </div>
+                <a href="./restaurante.php" class="btn btn-default"><i class="fa-regular fa-circle-left"></i></a>
 
             <tr>
                 <form id="filter" class="d-flex" role="search">
