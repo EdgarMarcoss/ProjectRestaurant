@@ -37,20 +37,27 @@ include 'cabezera.html';
         </div>
 
     </div>
-    
-    <?php if (isset($_POST['submit'])){
-        if ($_POST['estado'] == 'ocupado') { ?>
+    <?php
+    include '../model/usuario.php';                      
+    $listaUsuarios=Usuario::getTipoUsuario($_SESSION['user']);
+    if (isset($_POST['submit'])){
+        if ($_POST['estado'] == 'ocupado') { 
+        
+        if ($listaUsuarios[0]['personal_usuario']=='camarero'){?>        
             <div id="libre" class="modalmask">
                 <div class="contenido modalbox">
                 <a href="" title="Close" class="close">X</a>
-                    <h2 class="login-text"><span>Finalizar reserva</span></h2>
+                    <h2 class="login-text"><span>Finalizar Reserva</span></h2>                    
+                        
                     <form action="../controller/eliminarreserva.php" method="post" class="form-res" onsubmit="return valid()">
                         <input type="hidden" name="mesa" value="<?php echo $_POST['id_mobi'] ?>" id="id_mesa">
-                        <div class="reservar">
-                        <select name="motivo" id="final-reserva">
-                            <option value="finalizar" default>Finalizar</option>
-                            <option value="cancelar">Cancelar</option>
-                        </select>
+                        <div class="reservar">                     
+                        
+                            <select name="motivo" id="final-reserva">
+                                <option value="finalizar" default>Finalizar</option>
+                                
+                            </select>                        
+                       
                             <!-- <p id="mensaje2"></p> -->
                         </div>
 
@@ -58,22 +65,102 @@ include 'cabezera.html';
                     </form>
                 </div>
             </div>
-    <?php } else { ?>
-    <div id="libre" class="modalmask">
+            <?php  
+        }
+    } else if ($_POST['estado'] == 'mantenimiento') { 
+
+        if ($listaUsuarios[0]['personal_usuario']=='mantenimiento'){?>
+        <div id="libre" class="modalmask">
         <div class="contenido modalbox">
         <a href="" title="Close" class="close">X</a>
-            <h2 class="login-text"><span>Reserva</span></h2>
-            <form action="../controller/crearreserva.php" method="post" onsubmit="return valid()">
+            <h2 class="login-text"><span>Finalizar Incidencia</span></h2>                    
+                
+            <form action="../controller/eliminarincidencia.php" method="post" class="form-res" onsubmit="return valid()">
                 <input type="hidden" name="mesa" value="<?php echo $_POST['id_mobi'] ?>" id="id_mesa">
-                <div>
-                    <label for="">Nombre Reserva</label>
-                    <input type="text" name="nombre_reserva">
-                    <p id="mensaje2"></p>
+                <div class="reservar">
+
+                    <select name="motivo" id="final-reserva">
+                        <option value="finalizar" default>Finalizar</option>
+                       
+                    </select>
+                  
+             
+                    <!-- <p id="mensaje2"></p> -->
                 </div>
-                <input type="submit"  id="submit" class="btn-login" value="Reservar" >
+
+                <input type="submit"  id="submit" class="btn-login" value="Enviar" >
             </form>
         </div>
     </div>
-    <?php }};?>
+    <?php
+    }}else{ 
+    
+    if ($listaUsuarios[0]['personal_usuario']=='camarero'){?>
+        <div id="libre" class="modalmask">
+            <div class="contenido modalbox">
+            <a href="" title="Close" class="close">X</a>
+                <h2 class="login-text"><span>Crear</span></h2>           
+                
+                    <form action="../controller/crearreserva.php" method="post" onsubmit="return valid()">
+                        <input type="hidden" name="mesa" value="<?php echo $_POST['id_mobi'] ?>" id="id_mesa">
+                        <div class="reservar">
+                        
+                            
+                                <select name="motivo" id="final-reserva">
+                                    <option value="reserva" default>Reserva</option>
+                                    <option value="incidencia">Incidencia</option>
+                                </select> 
+                                <div id="reserva-campo">
+                                    <label for="">Nombre Reserva</label><br>
+                                    <input type="text" name="reserva">
+                                    <br>
+                                </div>
+                                <div id="incidencia-campo">
+                                    <label for="">Motivo Incidencia</label><br>
+                                    <input type="text-area" name="incidencia">
+                                    <br>
+                                </div>
+                                <script>
+                                    reserva = document.getElementById("reserva-campo");
+                                    incidencia = document.getElementById("incidencia-campo");                                    
+
+                                    reserva.innerHTML = '';
+                                    incidencia.innerHTML = '';
+                                    select = document.getElementById('final-reserva');
+                                    reserva.innerHTML = `
+                                                <label for="">Nombre Reserva</label><br>
+                                                <input type="text" name="reserva">                                                
+                                            `;
+
+                                    select.addEventListener("change", () => {
+                                        if (document.getElementById('final-reserva').value == 'reserva') {
+                                            incidencia.innerHTML = '';                                           
+                                            reserva.innerHTML = `
+                                                <label for="">Nombre Reserva</label><br>
+                                                <input type="text" name="reserva">                                                
+                                            `;
+                                        } else if (document.getElementById('final-reserva').value == 'incidencia') {
+                                            incidencia.innerHTML = `
+                                                <label for="">Motivo Incidencia</label><br>
+                                                <input type="text-area" name="incidencia">
+                                                <br>
+                                            `;
+                                            reserva.innerHTML = '';  
+                                               
+                                        }                                      
+                                       
+                                    });
+
+                                </script>
+                                        
+                        </div>
+                        <input type="submit"  id="submit" class="btn-login" value="Crear" >
+                    </form>         
+                
+            </div>
+        </div>
+        <?php
+    }
+     }};?>
 </body>
 </html>
