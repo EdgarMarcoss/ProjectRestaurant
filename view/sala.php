@@ -5,6 +5,7 @@ if(empty($_SESSION['user'])){
 }
 if (isset($_POST['sala'])) {
     $_SESSION['id_sala'] = $_POST['sala'];
+    $_SESSION['nsala'] = $_POST['nsala'];
 }
 include 'cabezera.html';
 ?>
@@ -21,7 +22,7 @@ include 'cabezera.html';
 <body class="img-back">
     <div class="loader-page"></div>
     <nav>
-        <h3><?php echo $_POST['nsala'] ?></h3>
+        <h3><?php echo $_SESSION['nsala'] ?></h3>
     </nav>
     <a href="restaurante.php" class="volver-btn"><i class="fa-solid fa-circle-left"></i></a>
     <div class="fondo-mesas">
