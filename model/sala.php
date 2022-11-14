@@ -67,6 +67,14 @@ class Sala {
         return $listaSalas->fetch_all(MYSQLI_ASSOC);
     }
 
+    public static function getMesaMantenimiento() {
+        include 'conexion.php';
+        // $sql="SELECT s.id, s.nombre_sala, count(m.id) as `Mid` FROM tbl_salas s INNER JOIN tbl_mobiliario m ON s.id=m.id_sala WHERE m.estado_mobiliario = 'libre' GROUP BY s.id";
+        $sql="SELECT s.nombre_sala, COUNT(m.id) as `Mid`, m.estado_mobiliario FROM tbl_salas s INNER JOIN tbl_mobiliario m ON s.id=m.id_sala GROUP BY s.id, m.estado_mobiliario HAVING m.estado_mobiliario = 'mantenimiento';";
+        $listaSalas = mysqli_query($conexion, $sql);
+        return $listaSalas->fetch_all(MYSQLI_ASSOC);
+    }
+
 
     public static function getSalaEst(){
 
