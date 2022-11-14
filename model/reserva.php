@@ -121,18 +121,27 @@ class Reserva {
     * Esta funcion te devuelve la lista de reserva y no le pasa ningun parametro
     */
 
-    public static function getReservaFin(){     
-        $where = "";
-        require_once "conexion.php";
-        $sql="SELECT r.id,r.fecha_reserva,r.fecha_desocupacion,s.nombre_sala,u.nombre_usuario,m.numero_mobiliario FROM tbl_reserva r INNER JOIN tbl_usuarios u ON r.id_usuario=u.id INNER JOIN tbl_mobiliario m ON m.id=r.id_mobiliario INNER JOIN tbl_salas s ON m.id_sala=s.id where r.fecha_desocupacion != ''  $where";  
+    public static function getReservaFin($id = '', $fecha_res = '', $fecha_des = '', $nombre_reserva = '', $sala = '', $mesa = '', $camarero = ''){     
+        require_once "conexion.php";    
+        if(empty($id) and empty($fecha_res) and empty($fecha_des) and empty($nombre_reserva) and empty($sala) and empty($mesa) and empty($camarero)){
+            $where=''; 
+         }else{
+            $where="and r.id like '%".$id."%' and r.fecha_reserva like '%".$fecha_res."%' and r.fecha_desocupacion like '%".$fecha_des."%' and r.nombre_reserva like '%".$nombre_reserva."%' and s.nombre_sala like '%".$sala."%' and m.numero_mobiliario like '%".$mesa."%' and u.nombre_usuario like '%".$camarero."%' "; 
+         }
+        $sql="SELECT r.id,r.fecha_reserva,r.fecha_desocupacion,r.nombre_reserva,s.nombre_sala,u.nombre_usuario,m.numero_mobiliario FROM tbl_reserva r INNER JOIN tbl_usuarios u ON r.id_usuario=u.id INNER JOIN tbl_mobiliario m ON m.id=r.id_mobiliario INNER JOIN tbl_salas s ON m.id_sala=s.id where r.fecha_desocupacion != ''  $where";  
         $listaReserva = mysqli_query($conexion, $sql);
         $listaReserva=$listaReserva->fetch_all(MYSQLI_ASSOC); 
         return $listaReserva;      
     }
-    public static function getReservaActual(){     
-        $where = "";
-        require_once "conexion.php";
-        $sql="SELECT r.id,r.fecha_reserva,r.fecha_desocupacion,s.nombre_sala,u.nombre_usuario,m.numero_mobiliario FROM tbl_reserva r INNER JOIN tbl_usuarios u ON r.id_usuario=u.id INNER JOIN tbl_mobiliario m ON m.id=r.id_mobiliario INNER JOIN tbl_salas s ON m.id_sala=s.id where r.fecha_desocupacion = ''  $where";  
+    public static function getReservaActual($id = '', $fecha_res = '', $fecha_des = '', $nombre_reserva = '', $sala = '', $mesa = '', $camarero = ''){
+        require_once "conexion.php";    
+        if(empty($id) and empty($fecha_res) and empty($fecha_des) and empty($nombre_reserva) and empty($sala) and empty($mesa) and empty($camarero)){
+            $where=''; 
+        }else{
+            $where="and r.id like '%".$id."%' and r.fecha_reserva like '%".$fecha_res."%' and r.fecha_desocupacion like '%".$fecha_des."%' and r.nombre_reserva like '%".$nombre_reserva."%' and s.nombre_sala like '%".$sala."%' and m.numero_mobiliario like '%".$mesa."%' and u.nombre_usuario like '%".$camarero."%' "; 
+        } 
+        
+        $sql="SELECT r.id,r.fecha_reserva,r.fecha_desocupacion,r.nombre_reserva,s.nombre_sala,u.nombre_usuario,m.numero_mobiliario FROM tbl_reserva r INNER JOIN tbl_usuarios u ON r.id_usuario=u.id INNER JOIN tbl_mobiliario m ON m.id=r.id_mobiliario INNER JOIN tbl_salas s ON m.id_sala=s.id where r.fecha_desocupacion = ''  $where";  
         $listaReserva = mysqli_query($conexion, $sql);
         $listaReserva=$listaReserva->fetch_all(MYSQLI_ASSOC);  
         return $listaReserva;      

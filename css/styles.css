@@ -56,6 +56,9 @@
 body {
     overflow: hidden;
 }
+body.resp-scroll {
+    overflow: auto;
+}
 .background {
     width: 100vw;
     height: 100vh;
@@ -519,8 +522,25 @@ body {
     border: none;
     border-radius: 0;
 }
+.table.resp {
+    display: flex;
+    flex-direction: 100%;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.table.resp > div {
+    /* width: 25%; */
+    width: 33.3333%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
-/* FIN TABÑA RESERVA */
+.table.resp > div .grafico-canvas{
+    width: 100%;
+}
+
+/* FIN TABlA RESERVA */
 
 /* RESPONSIVE */
 

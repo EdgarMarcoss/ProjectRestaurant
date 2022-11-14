@@ -23,13 +23,13 @@
     ?>
     
     <!-- Estadisticas Salas -->  
-    <script>var chart;</script>
+    <!-- <script>var chart;</script> -->
     
     <canvas id="myChart"></canvas>
     <!-- <script src="chart.js"></script> -->
     <script>
         var ctx = document.getElementById('myChart').getContext('2d');
-        chart = new Chart(ctx, {
+        var chart = new Chart(ctx, {
             type: 'doughnut',
             data: {
                 datasets: [{
@@ -51,7 +51,7 @@
             }
         });  
         var cont = 0
-    </script> 
+    </script>
     
 
     <!-- Estadísticas Mesas --> 
@@ -61,10 +61,9 @@
    
     foreach ($listaSalas as $salas) {   
         echo $salas['nombre_sala'];
-             echo '<canvas id="myChart'.$Chart.'"></canvas>';    
+        echo '<canvas id="myChart'.$Chart.'"></canvas>';    
         ?>
     
-    <script src="chart.js"></script>
     <script>
         var ctx = document.getElementById('myChart'+cont).getContext('2d');
         var chart2 = new Chart(ctx, {
@@ -96,9 +95,7 @@
     </script>
     <?php
     $Chart++;
-    }
-    
-    ?>    
+    } ?>    
 </body>
 
 </html>
