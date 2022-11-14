@@ -29,8 +29,11 @@ if (!isset($_SESSION['user'])) {
         <div class="contenido restaurante">
             <!-- Mostrar todos los sitios/salas -->
             <?php
-            require_once '../model/sala.php';
+            include '../model/sala.php';
             $vuelta = 0;
+            include '../model/usuario.php';                      
+            $listaUsuarios=Usuario::getTipoUsuario($_SESSION['user']);
+            
             
             foreach (Sala::getSala() as $element) {
                 echo '<div class="content">';
@@ -39,15 +42,36 @@ if (!isset($_SESSION['user'])) {
                                 <h3>'.str_replace("_", " ", $element["nombre_sala"]).'</h3>
                                 <div class="info-salas">
                                     <h4>'.str_replace("_", " ", $element["nombre_sala"]).'</h4>
-                                    <p>Mesas totales: '.$element["Mid"].'</p>
-                                    <p>Mesas disponibles: ';
-                                    if (Sala::getMesaLibre()[$vuelta]["nombre_sala"] == $element["nombre_sala"]) {
-                                        $disponible = Sala::getMesaLibre()[$vuelta]["Mid"];
-                                        $vuelta++;
-                                    } else {
-                                        $disponible = "0";
+                                    <p>Mesas totales: '.$element["Mid"].'</p>';
+
+                                                                                                   
+                                    if ($listaUsuarios[0]['personal_usuario']=='mantenimiento') { 
+                                        
+                                        if (Sala::getMesaMantenimiento()) {
+                                       
+                                        
+                                        
+                                        if (Sala::getMesaMantenimiento()[$vuelta]["nombre_sala"] == $element["nombre_sala"]) {
+                                            
+                                            $disponible = Sala::getMesaMantenimiento()[$vuelta]["Mid"];
+                                            $vuelta++;
+                                        } 
+                                        }else{
+                                            
+                                            $disponible = "0";
+                                        }
+                                    }else{
+                                        echo '<p>Mesas Disponibles:</p>';
+                                        if (Sala::getMesaLibre()[$vuelta]["nombre_sala"] == $element["nombre_sala"]) {
+                                            $disponible = Sala::getMesaLibre()[$vuelta]["Mid"];
+                                            $vuelta++;
+                                        } else {
+                                            $disponible = "0";
+                                         }
                                     }
-                                    echo $disponible.'</p>
+                                   
+                                    echo '<p>Mesas Mantenimiento:</p><p>'.$disponible.'</p>
+                            
                                     <form action="sala.php" method="post" class="ver">
                                         <input type="hidden" name="nsala" value="'.str_replace("_", " ", $element["nombre_sala"]).'">
                                         <input type="hidden" name="sala" value="'.$element['id'].'">
