@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-11-2022 a las 17:33:26
+-- Tiempo de generación: 11-11-2022 a las 18:14:21
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 7.4.29
 
@@ -56,16 +56,42 @@ CREATE TABLE `tbl_mobiliario` (
 --
 
 INSERT INTO `tbl_mobiliario` (`id`, `numero_mobiliario`, `tipo_mobiliario`, `estado_mobiliario`, `capacidad_mesa`, `img_mobiliario`, `id_sala`) VALUES
-(1, '1', 'mesa', 'libre', '2', 'mesa_2.svg', 15),
-(2, '2', 'mesa', 'mantenimento', '2', 'mesa_2.svg', 15),
-(3, '1', 'mesa', 'libre', '4', 'mesa_4.svg', 18),
-(4, '2', 'mesa', 'libre', '4', 'mesa_4.svg', 18),
-(5, '1', 'mesa', 'ocupado', '4', 'mesa_4.svg', 13),
-(6, '1', 'mesa', 'mantenimento', '8', 'mesa_8.svg', 16),
-(7, '1', 'mesa', 'ocupado', '4', 'mesa_4.svg', 18),
-(8, '1', 'mesa', 'ocupado', '2', 'mesa_2.svg', 14),
-(9, '3', 'mesa', 'ocupado', '8', 'mesa_8.svg', 15),
-(10, '1', 'mesa', 'libre', '4', 'mesa_4.svg', 17);
+(11, '1', 'mesa', 'libre', '4', 'mesa_4.svg', 13),
+(12, '2', 'mesa', 'libre', '2', 'mesa_2.svg', 13),
+(13, '3', 'mesa', 'libre', '2', 'mesa_2.svg', 13),
+(14, '4', 'mesa', 'libre', '4', 'mesa_4.svg', 13),
+(15, '1', 'mesa', 'libre', '12', 'mesa_12.svg', 15),
+(16, '2', 'mesa', 'libre', '2', 'mesa_2.svg', 15),
+(17, '3', 'mesa', 'libre', '4', 'mesa_4.svg', 15),
+(18, '4', 'mesa', 'libre', '4', 'mesa_4.svg', 15),
+(19, '5', 'mesa', 'libre', '4', 'mesa_4.svg', 15),
+(20, '6', 'mesa', 'libre', '4', 'mesa_4.svg', 15),
+(21, '7', 'mesa', 'libre', '2', 'mesa_2.svg', 15),
+(22, '8', 'mesa', 'libre', '12', 'mesa_12.svg', 15),
+(23, '1', 'mesa', 'libre', '12', 'mesa_12.svg', 17),
+(24, '2', 'mesa', 'libre', '2', 'mesa_2.svg', 17),
+(25, '3', 'mesa', 'libre', '4', 'mesa_4.svg', 17),
+(26, '4', 'mesa', 'libre', '2', 'mesa_2.svg', 17),
+(27, '5', 'mesa', 'libre', '4', 'mesa_4.svg', 17),
+(28, '6', 'mesa', 'libre', '2', 'mesa_2.svg', 17),
+(29, '1', 'mesa', 'libre', '4', 'mesa_4.svg', 14),
+(30, '2', 'mesa', 'libre', '2', 'mesa_2.svg', 14),
+(31, '3', 'mesa', 'libre', '2', 'mesa_2.svg', 14),
+(32, '4', 'mesa', 'libre', '4', 'mesa_4.svg', 14),
+(33, '1', 'mesa', 'libre', '12', 'mesa_12.svg', 16),
+(34, '2', 'mesa', 'libre', '2', 'mesa_2.svg', 16),
+(35, '3', 'mesa', 'libre', '4', 'mesa_4.svg', 16),
+(36, '4', 'mesa', 'libre', '4', 'mesa_4.svg', 16),
+(37, '5', 'mesa', 'libre', '4', 'mesa_4.svg', 16),
+(38, '6', 'mesa', 'libre', '4', 'mesa_4.svg', 16),
+(39, '7', 'mesa', 'libre', '2', 'mesa_2.svg', 16),
+(40, '8', 'mesa', 'libre', '12', 'mesa_12.svg', 16),
+(41, '1', 'mesa', 'libre', '12', 'mesa_12.svg', 18),
+(42, '2', 'mesa', 'libre', '2', 'mesa_2.svg', 18),
+(43, '3', 'mesa', 'libre', '4', 'mesa_4.svg', 18),
+(44, '4', 'mesa', 'libre', '2', 'mesa_2.svg', 18),
+(45, '5', 'mesa', 'libre', '4', 'mesa_4.svg', 18),
+(46, '6', 'mesa', 'libre', '2', 'mesa_2.svg', 18);
 
 -- --------------------------------------------------------
 
@@ -81,15 +107,6 @@ CREATE TABLE `tbl_reserva` (
   `id_usuario` int(11) NOT NULL,
   `id_mobiliario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `tbl_reserva`
---
-
-INSERT INTO `tbl_reserva` (`id`, `fecha_reserva`, `fecha_desocupacion`, `nombre_reserva`, `id_usuario`, `id_mobiliario`) VALUES
-(34, '2022-11-10 17:33:42', '', 'Fabri', 1, 5),
-(35, '2022-11-11 11:34:00', '2022-11-11 11:34:52', 'prueba', 1, 3),
-(36, '2022-11-11 11:34:47', '', 'Edgar', 1, 7);
 
 -- --------------------------------------------------------
 
@@ -192,7 +209,7 @@ ALTER TABLE `tbl_incidencia`
 -- AUTO_INCREMENT de la tabla `tbl_mobiliario`
 --
 ALTER TABLE `tbl_mobiliario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_reserva`

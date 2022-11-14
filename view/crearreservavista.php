@@ -1,5 +1,12 @@
 <?php
-// include 'cabezera.html';   
+// include 'cabezera.html';  
+
+session_start();
+if(empty($_SESSION['user'])){
+
+   echo "<script>location.href='../index.php'</script>";
+   
+}
   
 ?>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.2/axios.js" integrity="sha512-alPPV0FSr6mYlSRf3QgbZmEqL7o99K5e30hGX+FrqDwMhnTngIeshurUAuKFDG28IzPSCSWTwmEfN0wBjg19KQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

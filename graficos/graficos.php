@@ -23,13 +23,13 @@
     ?>
     
     <!-- Estadisticas Salas -->  
-    <script>var chart;</script>
+    <!-- <script>var chart;</script> -->
     
     <canvas id="myChart"></canvas>
     <!-- <script src="chart.js"></script> -->
     <script>
         var ctx = document.getElementById('myChart').getContext('2d');
-        chart = new Chart(ctx, {
+        var chart = new Chart(ctx, {
             type: 'doughnut',
             data: {
                 datasets: [{
@@ -42,8 +42,7 @@
                 }],
                 labels: [<?php foreach($listaSalas as $salas){
 
-                        echo "'{$salas['nombre_sala']}',";
-                        
+                        echo "'{$salas['nombre_sala']}',";                        
 
                 } ?> ]
             },
@@ -51,36 +50,40 @@
                 responsive: true
             }
         });  
-        // chart.destroy();
+        var cont = 0
     </script>
+    
 
+    <!-- Estadísticas Mesas --> 
   
-
-
-    <!-- Estadísticas Mesas -->
     <?php
-    // foreach ($listaSalas as $salas) {
-         ?>
-    <!-- <canvas id="myChart"></canvas> -->
-    <!-- <script src="chart.js"></script> -->
+    $Chart = 0;
+   
+    foreach ($listaSalas as $salas) {   
+        echo $salas['nombre_sala'];
+        echo '<canvas id="myChart'.$Chart.'"></canvas>';    
+        ?>
+    
     <script>
-        // chart.clear();
-        // chart.destroy();
-        ctx = document.getElementById('myChart').getContext('2d');
-        chart = new Chart(ctx, {
+        var ctx = document.getElementById('myChart'+cont).getContext('2d');
+        var chart2 = new Chart(ctx, {
             type: 'doughnut',
             data: {
                 datasets: [{
                     data: [ <?php foreach ($listaMobiliario as $mobiliario) {
-                         echo $mobiliario['Mid'];
-                         echo  ",";
+                          if ($salas['id_sala']==$mobiliario['id_sala']) {
+                            echo $mobiliario['Mid'];
+                            echo  ",";
+                        }
                     } ?> ],
                     backgroundColor: ['#42a5f5', 'red', 'green', 'blue', 'violet'],
                     label: 'Comparacion de navegadores'
                 }],
                 labels: [<?php foreach($listaMobiliario as $mobiliario){
 
-                        echo "'{$mobiliario['numero_mobiliario']}',";
+                     if ($salas['id_sala']==$mobiliario['id_sala']) {
+                        echo "'{$mobiliario['numero_mobiliario']}',"; 
+                     }                  
 
                 } ?> ]
             },
@@ -88,10 +91,11 @@
                 responsive: true
             }
         });
+        cont++
     </script>
     <?php
-    // }
-    ?>    
+    $Chart++;
+    } ?>    
 </body>
 
 </html>

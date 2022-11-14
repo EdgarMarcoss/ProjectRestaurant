@@ -12,9 +12,15 @@ if (!isset($_SESSION['user'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php require_once 'cabezera.html'; ?>
+    <script src="https://code.jquery.com/jquery-3.6.1.slim.min.js" integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA=" crossorigin="anonymous"></script>
+    <script src="../js/carga.js"></script>
     <title>Restaurante</title>
 </head>
-<body>
+<body class="img-back">
+    <div class="loader-page"></div>
+
+<!-- <body class="loader"> -->
+    <!-- <div class="loader"></div> -->
 <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light"> -->
     <!-- <div class="navbar-nav"> -->
         <a class="log-out" aria-current="page" href="../controller/logout.php"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>         
