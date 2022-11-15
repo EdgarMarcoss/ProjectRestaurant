@@ -6,6 +6,7 @@
 
 
 /*ESTILOS ERROR*/
+
 .error-msg {
     position: absolute;
     top: 0;
@@ -36,10 +37,11 @@
     cursor: pointer;
     transition: 0.3s;
 }
-  
+
 .closebtn:hover {
     color: black;
 }
+
 
 /* FIN Estilos alertas*/
 
@@ -52,18 +54,23 @@
     font-family: 'Work Sans', sans-serif;
 }
 
+
 /* LOGIN */
+
 body {
     overflow: hidden;
 }
+
 body.resp-scroll {
     overflow: auto;
 }
+
 .img-back {
     background-image: url('../img/restaurante/carga.jpg');
     background-size: cover;
     background-position: center;
 }
+
 .background {
     width: 100vw;
     height: 100vh;
@@ -72,10 +79,15 @@ body.resp-scroll {
     justify-content: center;
     position: absolute;
     top: 0;
-    /* background-color: rgb(251, 251, 251); */
-    background: rgba(244,159,130, .8);
+    background: rgba(244, 159, 130, .8);
     backdrop-filter: blur(2px);
 }
+
+.background.b-reserva {
+    /* padding: 64px 0 5% 0; */
+    padding: 10% 0 5% 0;
+}
+
 .contenido {
     padding: 20px;
     border: 2px solid black;
@@ -83,8 +95,8 @@ body.resp-scroll {
     border-radius: 20px;
     color: black;
     max-width: 400px;
-    /* width: 100%; */
 }
+
 .login-text {
     position: relative;
     text-align: center;
@@ -92,12 +104,12 @@ body.resp-scroll {
     padding-top: 12px;
     width: 100%;
 }
+
 .login-text span {
     width: fit-content;
     padding: 0 5px;
-    /* position: relative; */
-    /* background-color: white; */
 }
+
 .login-text:before {
     position: absolute;
     left: 0;
@@ -106,50 +118,54 @@ body.resp-scroll {
     border-bottom: 2px solid black;
     width: 100%;
 }
+
 .contenido form {
-    /* margin-top: 20px; */
     padding: 0 20px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     width: 100%;
 }
+
 .ver {
     margin-top: 20px;
     display: flex;
     justify-content: center;
     width: 100%;
 }
+
 .contenido form div {
     padding: 20px 0;
     width: 100%;
 }
+
 .contenido form div:first-child {
     padding-top: 30px;
 }
+
 .contenido form div:nth-child(2) {
     margin-bottom: 10px;
 }
+
 .contenido form label {
     display: block;
     color: black;
     font-weight: 600;
     font-size: 20px;
-    /* width: 10px; */
     margin-bottom: 10px;
 }
+
 .contenido form input {
     font-size: 18px;
     width: 100%;
     padding: 5px;
-    /* background: linear-gradient(37deg,rgb(37, 206, 37), rgb(48, 197, 217)); */
     background: white;
-    border: 1px solid rgba(244,159,130, .8);
+    border: 1px solid rgba(244, 159, 130, .8);
 }
 
 .contenido form input.btn-login {
     width: fit-content !important;
-    background: rgba(244,159,130, .8);
+    background: rgba(244, 159, 130, .8);
     color: black;
     padding: 8px 25px;
     border: none;
@@ -162,6 +178,7 @@ body.resp-scroll {
     outline: none;
     background-color: rgb(202, 98, 29);
 }
+
 
 /* FIN LOGIN */
 
@@ -178,14 +195,15 @@ nav {
     text-align: center;
     height: fit-content;
 }
+
 nav h3 {
     width: 100%;
     color: #dce0e3;
     margin: 0;
     padding: 15px 0;
     font-weight: bold;
-    /* height: 20px; */
 }
+
 .log-out {
     position: absolute;
     /* height: 10%; */
@@ -197,21 +215,35 @@ nav h3 {
     color: white;
     transition: all 3s;
 }
+
 .log-out:hover i:before {
     transition: all .3s;
     content: "\f2f5";
     color: white;
 }
 
+.log {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 5;
+    margin: 15px;
+    font-size: 25px;
+    color: white;
+    transition: all 0.3s;
+}
+
+.log:hover {
+    transform: scale(1.15);
+    color: whitesmoke;
+}
+
 .contenido.restaurante {
-    /* padding: 20px; */
     padding: 0px;
-    /* border: 2px solid black; */
     border: none;
     background-color: rgba(255, 255, 255, 0);
     border-radius: 0px;
     color: black;
-    /* max-width: 600px; */
     max-width: initial;
     width: 70%;
     display: flex;
@@ -219,19 +251,72 @@ nav h3 {
     align-items: center;
     flex-wrap: wrap;
 }
+
+.contenido.restaurante::-webkit-scrollbar {
+    width: 8px;
+    /* Tamaño del scroll en vertical */
+    height: 8px;
+    /* Tamaño del scroll en horizontal */
+    display: none;
+    /* Ocultar scroll */
+}
+
+.contenido.tabla-res {
+    padding: 0px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+    border-radius: 0px;
+    color: black;
+    max-width: initial;
+    width: 70%;
+    height: 100%;
+    overflow: auto;
+}
+
+.contenido.tabla-res table {
+    margin: 0;
+    height: 100%;
+}
+
+.contenido.tabla-res::-webkit-scrollbar {
+    width: 8px;
+    /* Tamaño del scroll en vertical */
+    height: 8px;
+    /* Tamaño del scroll en horizontal */
+    display: none;
+    /* Ocultar scroll */
+}
+
 .salas.Terraza {
     background-image: url('../img/restaurante/terraza.jpg');
     background-position: center bottom;
 }
-/* .salas.terraza.remove > .blur > h2 {
+
+.background.b-reserva.graph {
+    padding: 7.5% 0 2.5% 0;
+}
+
+.background.b-reserva.graph>div>table {
+    overflow: auto;
+}
+
+.background.b-reserva.graph>div>table::-webkit-scrollbar {
+    width: 8px;
+    /* Tamaño del scroll en vertical */
+    height: 8px;
+    /* Tamaño del scroll en horizontal */
     display: none;
-} */
+    /* Ocultar scroll */
+}
+
 .salas.Comedor {
     background-image: url('../img/restaurante/comedor.jpg');
 }
+
 .salas.Privada {
     background-image: url('../img/restaurante/privada.jpg');
 }
+
 .blur {
     display: flex;
     flex-wrap: wrap;
@@ -243,29 +328,50 @@ nav h3 {
     width: 100%;
     height: 100%;
 }
-.salas, .content {
+
+.salas,
+.content {
     width: 33.333%;
     height: 200px;
-    /* height: fit-content; */
-    /* border: 1px solid black; */
     background-size: cover;
     transition: all 0.7s;
-    border: 2.5px solid rgba(0,0,0,0);
+    border: 2.5px solid rgba(0, 0, 0, 0);
     margin-bottom: 5px;
-
 }
+
+.content:hover {
+    animation: picado .3s ease-in-out;
+}
+
+@keyframes picado {
+    0% {
+        transform: rotateZ(0deg);
+    }
+    33% {
+        transform: rotateZ(2deg);
+    }
+    66% {
+        transform: rotateZ(-2deg);
+    }
+    100% {
+        transform: rotateZ(0deg);
+    }
+}
+
 .salas {
-    /* margin: 5px; */
     width: 100%;
     border: 1px solid black;
 }
+
 .salas.minimas {
     width: 33.3333%;
 }
+
 .salas.mostrar {
     display: block;
     transform: rotateY(180deg);
 }
+
 .salas .blur {
     display: flex;
     width: 100%;
@@ -274,13 +380,15 @@ nav h3 {
     align-content: center;
     /* margin: 5px; */
 }
+
 .tipo {
     display: contents;
 }
-.salas .blur > * {
+
+.salas .blur>* {
     /* width: 100%; */
     font-size: 23px;
-    background-color: rgba(220,224,227, .8);
+    background-color: rgba(220, 224, 227, .8);
     padding: 10px;
     border-radius: 10px;
     backdrop-filter: blur(1px);
@@ -291,31 +399,37 @@ nav h3 {
     opacity: 0;
     transition: all .7s;
 }
+
 .info-salas.mostrar {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
     display: block;
     opacity: 1;
     transform: rotateY(180deg);
+    width: 90%;
+    height: 90%;
 }
-.info-salas.mostrar > p {
+
+.info-salas.mostrar>p {
     margin: 0;
 }
 
 .btn-salas {
     background-color: #f08362;
-    /* border: thin solid black; */
     border: none;
-    box-shadow: black 0px 0px 20px 2px;
+    box-shadow: black 0px 1px 8px;
     padding: 7px 20px;
     border-radius: 20px;
     font-weight: bold;
     cursor: pointer;
 }
+
 .form-res {
     text-align: center;
 }
-.btn-reservas, .btn-reservas.sala {
+
+.btn-reservas,
+.btn-reservas.sala {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -325,9 +439,11 @@ nav h3 {
     justify-content: center;
     text-decoration: none;
 }
+
 .btn-reservas.sala {
     margin-bottom: 20px;
 }
+
 .btn-reservas button {
     width: 150px;
     height: 50px;
@@ -335,21 +451,32 @@ nav h3 {
     margin-left: 10px;
     background: #dce0e3;
     border: 0 solid #000;
-    box-shadow: #dce0e3 1px 1px 10px ;
+    box-shadow: #dce0e3 1px 1px 10px;
     font-weight: bold;
     border-radius: 15px;
     cursor: pointer;
+    transition: all 0.3s;
 }
+
+.btn-reservas button:hover {
+    background: #fdfdfd;
+    box-shadow: #f9fafa 1px 1px 10px;
+}
+
 #all-salas {
     padding: 0 15px;
     height: auto;
     width: fit-content;
 }
+
 #final-reserva {
     margin-top: 20px;
     font-size: 20px;
 }
+
+
 /* FIN RESTAURANTE */
+
 
 /* PAGINA SALAS */
 
@@ -358,9 +485,12 @@ nav h3 {
     background-color: rgba(0, 0, 0, 0);
 }
 
+
 /* FIN SALAS */
 
+
 /* MODAL */
+
 
 /*VENTANAS MODALES*/
 
@@ -371,63 +501,67 @@ nav h3 {
     right: 0;
     bottom: 0;
     left: 0;
-    background: rgba(0,0,0,0.8);
+    background: rgba(0, 0, 0, 0.8);
     z-index: 99999;
-    /* opacity:0; */
     -webkit-transition: opacity 400ms ease-in;
     -moz-transition: opacity 400ms ease-in;
     transition: opacity 400ms ease-in;
-    /* pointer-events: none; */
     display: flex;
     justify-content: center;
     align-content: center;
     align-items: center;
 }
-/* .modalmask:target {
-    opacity:1;
-    pointer-events: auto;
-} */
-.modalbox{
+
+.modalbox {
     width: 400px;
     position: relative;
     padding: 5px 20px 13px 20px;
     background: #fff;
-    border-radius:3px;
+    border-radius: 3px;
     -webkit-transition: all 500ms ease-in;
     -moz-transition: all 500ms ease-in;
     transition: all 500ms ease-in;
-    
 }
 
-.contenido.modalbox > form .reservar {
-    /* padding: 0px 10px; */
+.contenido.modalbox>form>.reservar {
     padding-top: 0 !important;
+    text-align: center;
+}
+
+#reserva-campo {
+    margin-bottom: 0 !important;
 }
 
 .movedown {
     margin: 0 auto;
 }
+
 .rotate {
     margin: 10% auto;
-    -webkit-transform: scale(-5,-5);
-    transform: scale(-5,-5);
+    -webkit-transform: scale(-5, -5);
+    transform: scale(-5, -5);
 }
+
 .resize {
     margin: 10% auto;
-    width:0;
-    height:0;
+    width: 0;
+    height: 0;
 }
-.modalmask:target .movedown{
-    margin:10% auto;
+
+.modalmask:target .movedown {
+    margin: 10% auto;
 }
-.modalmask:target .rotate{
-    transform: rotate(360deg) scale(1,1);
-    -webkit-transform: rotate(360deg) scale(1,1);
+
+.modalmask:target .rotate {
+    transform: rotate(360deg) scale(1, 1);
+    -webkit-transform: rotate(360deg) scale(1, 1);
 }
-.modalmask:target .resize{
-    width:400px;
-    height:200px;
+
+.modalmask:target .resize {
+    width: 400px;
+    height: 200px;
 }
+
 .close {
     background: #606061;
     color: #FFFFFF;
@@ -439,14 +573,16 @@ nav h3 {
     width: 24px;
     text-decoration: none;
     font-weight: bold;
-    border-radius:3px;
-    font-size:16px;
+    border-radius: 3px;
+    font-size: 16px;
 }
 
 .close:hover {
     background: #FAAC58;
-    color:#222;
+    color: #222;
 }
+
+
 /* FIN MODAL */
 
 .volver-btn {
@@ -459,6 +595,7 @@ nav h3 {
     z-index: 5;
     transition: all 0.3s;
 }
+
 .volver-btn:hover {
     color: #fff;
     transform: scale(1.15);
@@ -476,9 +613,10 @@ nav h3 {
     flex-wrap: wrap;
     position: absolute;
     top: 0;
-    background: rgba(244,159,130, .8);
+    background: rgba(244, 159, 130, .8);
     backdrop-filter: blur(1px);
 }
+
 .fondo-mesas .limites {
     width: 80%;
     display: flex;
@@ -487,84 +625,112 @@ nav h3 {
     background-size: 10%;
     border-radius: 20px;
 }
+
 .fondo-mesas .limites.terraza {
     width: 90%;
     display: grid;
-    grid-template-areas:
-    '1 2 3 4';
+    grid-template-areas: '1 2 3 4';
     justify-content: space-around;
+    overflow: auto;
 }
-.m-ini { grid-area: ini;}
-.m-fin { grid-area: fin;}
-.fondo-mesas .limites.comedor {
-    width: 90%;
-    max-height: 81%;
-    display: grid;
-    grid-template-areas:
-    'ini ini 2 3 4'
-    '5 6 7 fin fin';
-    align-items: center;
-    justify-items: center;
-    overflow: hidden;
-}
-.fondo-mesas .limites.comedor > * {
-    width: auto;
-    max-height: 270px;
-}
-.fondo-mesas .limites.comedor > * img {
+
+.fondo-mesas .limites.terraza>* img {
     width: 80%;
     cursor: pointer;
     z-index: 10;
 }
-.fondo-mesas .limites.comedor > *:first-child img:first-child, .fondo-mesas .limites.comedor > *:last-child img:first-child {
-    width: 88%;
-    height: 440px;
+
+.m-ini {
+    grid-area: ini;
 }
-.fondo-mesas .limites.privada {
+
+.m-fin {
+    grid-area: fin;
+}
+
+.fondo-mesas .limites.comedor {
     width: 90%;
     max-height: 81%;
     display: grid;
-    grid-template-areas:
-    '1 2 3 4 5 6';
+    grid-template-areas: 'ini ini 2 3 4' '5 6 7 fin fin';
     align-items: center;
     justify-items: center;
     overflow: hidden;
 }
+
+.fondo-mesas .limites.comedor>* {
+    width: auto;
+    max-height: 270px;
+}
+
+.fondo-mesas .limites.comedor>* img {
+    width: 80%;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.fondo-mesas .limites.comedor>*:first-child img:first-child,
+.fondo-mesas .limites.comedor>*:last-child img:first-child {
+    width: 88%;
+    height: 440px;
+}
+
+.fondo-mesas .limites.privada {
+    width: 90%;
+    max-height: 81%;
+    display: grid;
+    grid-template-areas: '1 2 3 4 5 6';
+    align-items: center;
+    justify-items: center;
+    overflow: hidden;
+}
+
+.fondo-mesas .limites.privada>* img {
+    width: 80%;
+    cursor: pointer;
+    z-index: 10;
+}
+
 .fondo-mesas .tarjeta {
-    /* width: 50%; */
     display: flex;
     align-items: center;
     justify-content: center;
-    /* margin: 0px 20px; */
     cursor: pointer;
 }
-.tarjeta > form {
-    /* width: 100%; */
-    /* margin: 0px 20px; */
+
+.tarjeta>form {
     text-align: center;
     overflow: hidden;
-    /* background-color: white; */
 }
+
 .ocupado {
-    -webkit-filter: invert(33%) sepia(98%) saturate(7468%) hue-rotate(358deg) brightness(93%) contrast(119%);
-    filter: invert(33%) sepia(98%) saturate(7468%) hue-rotate(358deg) brightness(93%) contrast(119%);
+    -webkit-filter: invert(80%) sepia(159%) saturate(1104%) hue-rotate(1417deg) brightness(129%) contrast(137%);
+    filter: invert(80%) sepia(159%) saturate(1104%) hue-rotate(1417deg) brightness(129%) contrast(137%);
 }
+
 .mantenimiento {
-    -webkit-filter: invert(33%) sepia(98%) saturate(7468%) hue-rotate(358deg) brightness(93%) contrast(119%);
-    filter: invert(33%) sepia(5%) saturate(7408%) hue-rotate(0deg) brightness(100%) contrast(300%);
+    -webkit-filter: invert(57%) sepia(13%) saturate(5318%) hue-rotate(26deg) brightness(100%) contrast(300%);
+    filter: invert(57%) sepia(13%) saturate(5318%) hue-rotate(26deg) brightness(100%) contrast(300%);
 }
-/* .default {
-    -webkit-filter: invert(33%) sepia(98%) saturate(7468%) hue-rotate(358deg) brightness(93%) contrast(119%);
-    filter: invert(33%) sepia(5%) saturate(7408%) hue-rotate(0deg) brightness(100%) contrast(300%);
-} */
+
+.libre {
+    transition: all .2s ease-out;
+}
+
+.libre:hover {
+    -webkit-filter: invert(58%) sepia(13%) saturate(5371%) hue-rotate(48deg) brightness(100%) contrast(347%);
+    filter: invert(58%) sepia(13%) saturate(5371%) hue-rotate(48deg) brightness(100%) contrast(347%);
+}
+
+
 /* FIN PAGINA RESTAURANTE */
+
 .loader-page {
     position: fixed;
-    z-index: 25000;
+    z-index: 9999999000;
     background-image: url('../img/restaurante/carga.jpg');
     background-size: cover;
     background-position: center;
-    /* background: linear-gradient(37deg,rgb(105, 255, 105), rgb(76, 234, 255)); */
     background: #f6ae96;
     left: 0px;
     top: 0px;
@@ -573,9 +739,10 @@ nav h3 {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition:all .3s ease;
-  }
-  .loader-page::before {
+    transition: all .3s ease;
+}
+
+.loader-page::before {
     content: "";
     position: absolute;
     border: 10px solid rgb(255, 255, 255);
@@ -583,19 +750,28 @@ nav h3 {
     height: 65px;
     border-radius: 12%;
     box-sizing: border-box;
-    /* border-left: 2px solid rgba(50, 150, 176,0); */
-    /* border-top: 2px solid rgba(50, 150, 176,0); */
     animation: rotarload 2.5s linear infinite;
-    /* transform: rotate(0deg); */
-  }
-  @keyframes rotarload {
-      0%   {transform: rotate(0deg)}
-      25%   {transform: rotate(180deg)}
-      50% {transform: rotate(180deg)}
-      75% {transform: rotate(360deg)}
-      100% {transform: rotate(360deg)}
-  }
-  .loader-page::after {
+}
+
+@keyframes rotarload {
+    0% {
+        transform: rotate(0deg)
+    }
+    25% {
+        transform: rotate(180deg)
+    }
+    50% {
+        transform: rotate(180deg)
+    }
+    75% {
+        transform: rotate(360deg)
+    }
+    100% {
+        transform: rotate(360deg)
+    }
+}
+
+.loader-page::after {
     content: "";
     position: absolute;
     border: 10px solid #f08362;
@@ -603,19 +779,31 @@ nav h3 {
     height: 80px;
     border-radius: 12%;
     box-sizing: border-box;
-    /* border-left: 2px solid rgba(50, 150, 176, 0); */
-    /* border-top: 2px solid rgba(50, 150, 176, 0); */
     animation: rotarload2 2.5s ease-out infinite;
     transform: rotate(180deg);
-  }
-  @keyframes rotarload2 {
-    0%   {transform: rotate(0deg)}
-    25%   {transform: rotate(180deg)}
-    50% {transform: rotate(180deg)}
-    75% {transform: rotate(360deg)}
-    100% {transform: rotate(360deg)}
 }
+
+@keyframes rotarload2 {
+    0% {
+        transform: rotate(0deg)
+    }
+    25% {
+        transform: rotate(180deg)
+    }
+    50% {
+        transform: rotate(180deg)
+    }
+    75% {
+        transform: rotate(360deg)
+    }
+    100% {
+        transform: rotate(360deg)
+    }
+}
+
+
 /* TABLA RESERVAS */
+
 nav {
     width: 100%;
     position: relative;
@@ -626,6 +814,7 @@ nav {
     text-align: center;
     height: fit-content;
 }
+
 nav h3 {
     width: 100%;
     color: #dce0e3;
@@ -634,6 +823,11 @@ nav h3 {
     font-weight: bold;
     /* height: 20px; */
 }
+
+.nav-resp {
+    display: none !important;
+}
+
 .btn-group {
     width: 100%;
     position: relative;
@@ -645,26 +839,29 @@ nav h3 {
     text-align: center;
     height: fit-content;
     justify-content: center;
-    
 }
-.btn-group > * {
+
+.btn-group>* {
     /* width: fit-content; */
     width: 50%;
     display: flex;
     align-items: center;
     text-align: center;
     height: fit-content;
+    justify-content: center;
 }
-.btn-group > *:first-child button {
-    width: 100%;
+
+.btn-group>*:first-child button {
+    width: fit-content;
     color: white;
     margin: 0;
-    padding: 18px 0;
+    padding: 18px 10px;
     font-weight: bold;
     font-size: 18px;
     /* height: 20px; */
 }
-.btn-group > div:last-child a {
+
+.btn-group>div:last-child a {
     /* width: 100%; */
     color: #dce0e3;
     /* margin: 0; */
@@ -673,33 +870,148 @@ nav h3 {
     font-size: 25px;
     /* height: 20px; */
 }
+
 button.active {
     color: black !important;
     background-color: #c5c5c5 !important;
     border: none;
     border-radius: 0;
 }
+
+.table {
+    background-color: azure;
+    border-radius: 15px;
+    overflow: hidden;
+    width: 100%;
+}
+
 .table.resp {
     display: flex;
     flex-direction: 100%;
     flex-wrap: wrap;
     width: 100%;
 }
-.table.resp > div {
+
+.table.resp>div:first-child {
     /* width: 25%; */
-    width: 33.3333%;
+    width: 100%;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.table.resp > div .grafico-canvas{
+.table.resp>div {
+    /* width: 25%; */
+    width: 33.3333%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0px 0 26px 0;
+}
+
+.table.activa thead tr th:nth-child(3),
+.table.activa tbody tr td:nth-child(3) {
+    display: none;
+}
+
+.table thead tr th:nth-child(1),
+.table tbody tr td:nth-child(1) {
+    width: 72px;
+}
+
+.table thead tr th:nth-child(6),
+.table tbody tr td:nth-child(6) {
+    width: 80px;
+}
+
+.table tr td,
+.table tr th {
+    vertical-align: middle;
+}
+
+.table.resp>div .grafico-canvas {
     width: 100%;
 }
 
+
 /* FIN TABlA RESERVA */
 
+
 /* RESPONSIVE */
+
+@media only screen and (max-width: 900px) and (max-height: 1100px) {
+    .background.b-reserva {
+        padding: 64px 0 0 0;
+    }
+    .contenido.tabla-res {
+        height: 100% !important;
+        position: relative !important;
+        margin: 0;
+    }
+}
+
+@media only screen and (max-width: 1050px) {
+    .background.b-reserva {
+        padding: 64px 0 0 0;
+    }
+    .contenido.tabla-res {
+        border: none;
+        background-color: rgba(255, 255, 255, 0);
+        border-radius: 0px;
+        color: black;
+        width: 100%;
+        /* position: absolute; */
+        /* height: 91.5vh; */
+        bottom: 0;
+    }
+    .contenido.tabla-res table {
+        height: 100%;
+        width: 100%;
+        border-radius: 0;
+    }
+    .btn-group>* {
+        /* width: -webkit-fill-available; */
+        width: 90%;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        height: fit-content;
+        justify-content: start;
+    }
+    .table tr td,
+    .table tr th {
+        font-size: 18px;
+    }
+    .info-salas.mostrar {
+        font-size: 14px;
+        width: 90%;
+    }
+    .fondo-mesas .limites.terraza {
+        width: 90%;
+        display: grid;
+        grid-template-areas: '1 2';
+        justify-content: space-around;
+        overflow: auto;
+    }
+    .fondo-mesas .limites.comedor {
+        width: 90%;
+        max-height: 75%;
+        display: grid;
+        grid-template-areas: 'ini 2' 'fin 3';
+        align-items: center;
+        justify-items: center;
+        overflow: auto;
+    }
+    .fondo-mesas .limites.comedor::-webkit-scrollbar {
+        width: 8px;
+        /* Tamaño del scroll en vertical */
+        height: 8px;
+        /* Tamaño del scroll en horizontal */
+        display: none;
+        /* Ocultar scroll */
+    }
+}
 
 @media only screen and (max-width: 710px) {
     .contenido.restaurante {
@@ -708,10 +1020,12 @@ button.active {
         overflow: auto;
         scrollbar-base-color: #D8000C;
     }
-    .contenido.restaurante::-webkit-scrollbar {
-        width: 8px;     /* Tamaño del scroll en vertical */
-        height: 8px;    /* Tamaño del scroll en horizontal */
-        display: none;  /* Ocultar scroll */
+    .table tr td,
+    .table tr th {
+        font-size: 16px;
+    }
+    .contenido.tabla-res {
+        overflow: auto;
     }
     .content {
         width: 50%;
@@ -721,21 +1035,167 @@ button.active {
         border: none;
         margin-bottom: 0;
     }
-
     .fondo-mesas .limites.privada {
         max-height: 75%;
         display: grid;
-        grid-template-areas:
-        '1 2';
+        grid-template-areas: '1 2';
         overflow: auto;
+    }
+    .fondo-mesas .limites.privada::-webkit-scrollbar {
+        width: 8px;
+        /* Tamaño del scroll en vertical */
+        height: 8px;
+        /* Tamaño del scroll en horizontal */
+        display: none;
+        /* Ocultar scroll */
+    }
+    .btn-group {
+        /* width: -webkit-fill-available; */
+        justify-content: start;
+    }
+    .fondo-mesas .limites.comedor {
+        width: 90%;
+        max-height: 75%;
+        display: grid;
+        grid-template-areas: 'ini' '2' 'fin';
+        align-items: center;
+        justify-items: center;
+        overflow: auto;
+    }
+    .fondo-mesas .limites.comedor::-webkit-scrollbar {
+        width: 8px;
+        /* Tamaño del scroll en vertical */
+        height: 8px;
+        /* Tamaño del scroll en horizontal */
+        display: none;
+        /* Ocultar scroll */
+    }
+    .fondo-mesas .limites.comedor>*:first-child img:first-child,
+    .fondo-mesas .limites.comedor>*:last-child img:first-child {
+        width: 88%;
+        height: 322px;
     }
 }
 
-@media only screen and (max-width: 420px) {
+@media only screen and (max-width: 525px) {
+    .cerrar-desp {
+        width: 100%;
+        background-color: #585e5c !important;
+        text-align: center;
+        height: 10vh;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+    .cerrar-desp a {
+        text-align: end;
+        color: white;
+        font-size: 1.5rem;
+        padding: 20px 25px;
+        line-height: 10px;
+        margin-bottom: 40px;
+        background-color: rgba(244, 159, 130, 1);
+        box-shadow: rgba(244, 159, 130, 1) 1px 1px 7px;
+        /* color: #D8000C; */
+        border-radius: 50%;
+        /* height: 100%; */
+    }
+    .cerrar-desp a:hover {
+        background-color: #ff351f;
+        box-shadow: #ff351f 1px 1px 7px;
+        /* height: 100%; */
+    }
+    .desp-prin-div {
+        position: absolute;
+        top: -100vh;
+        left: 0;
+        opacity: 0;
+        height: 100vh;
+        width: 100vw;
+        z-index: -999;
+        background-color: #585e5c;
+        transition: all 0.7s;
+        /* margin-top: -50px; */
+    }
+    .desp-prin-div:target {
+        top: 0vh;
+        opacity: 1;
+        /* transition: all 0.5s; */
+        z-index: 9999;
+    }
+    .desp-prin {
+        padding-left: 0;
+    }
+    .desp-prin li {
+        background-color: rgba(244, 159, 130, 1);
+        font-size: 16px;
+        cursor: pointer;
+        transition: all 0.5s;
+        height: 10vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: x-large;
+        border-bottom: thin solid #5e5e5e;
+    }
+    .desp-prin>li:nth-child(2) a,
+    .desp-prin>li:nth-child(3) a,
+    .desp-prin>li:nth-child(4) a,
+    .desp-prin>li:last-child a {
+        width: 100%;
+        height: 100%;
+        color: white;
+    }
+    .desp-prin>li:nth-child(2) a:hover,
+    .desp-prin>li:nth-child(3) a:hover,
+    .desp-prin>li:nth-child(4) a:hover {
+        width: 100%;
+        height: 100%;
+        color: white;
+        background-color: rgb(235 146 115);
+    }
+    .desp-prin>li:last-child a button {
+        background-color: #fa8b58;
+    }
+    .desp-prin>li:last-child a button:hover {
+        background-color: #ff7e42;
+        color: white;
+        outline: none;
+    }
+    .desp-prin li a button {
+        color: white;
+        width: 100%;
+        height: 100%;
+    }
+    .nav-norm {
+        display: none;
+    }
+    .nav-resp {
+        display: block !important;
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 11px 0;
+    }
+    .nav-resp>li>a {
+        color: whitesmoke;
+    }
+    .nav-resp>li {
+        align-items: center;
+        font-size: 1.7rem;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
     .contenido.restaurante {
         width: 80%;
         height: 75vh;
         overflow: auto;
+    }
+    .contenido.tabla-res {
+        height: 93.5vh;
     }
     .content {
         width: 100%;
@@ -746,7 +1206,6 @@ button.active {
         transition: all 0.7s;
         border: none;
     }
-
     .contenido {
         margin: 0 15px;
     }
@@ -754,40 +1213,50 @@ button.active {
         width: 90%;
         max-height: 75%;
         display: grid;
-        grid-template-areas:
-        '1';
+        grid-template-areas: '1';
         overflow: auto;
+    }
+    .fondo-mesas .limites.terraza::-webkit-scrollbar {
+        width: 8px;
+        /* Tamaño del scroll en vertical */
+        height: 8px;
+        /* Tamaño del scroll en horizontal */
+        display: none;
+        /* Ocultar scroll */
     }
     .fondo-mesas .limites.privada {
         max-height: 75%;
         display: grid;
-        grid-template-areas:
-        '1';
+        grid-template-areas: '1';
         overflow: auto;
     }
-    .tarjeta > form {
+    .tarjeta>form {
         /* width: 100%; */
         /* margin: 0px 20px; */
         text-align: center;
         overflow: hidden;
         /* background-color: white; */
     }
-    .fondo-mesas .limites.comedor {
+    .info-salas.mostrar {
+        font-size: 15px;
         width: 90%;
-        max-height: 75%;
-        display: grid;
-        grid-template-areas:
-        'ini'
-        '2'
-        'fin';
-        align-items: center;
-        justify-items: center;
-        overflow: auto;
     }
-    .fondo-mesas .limites.comedor > *:first-child img:first-child, .fondo-mesas .limites.comedor > *:last-child img:first-child {
-        width: 88%;
-        height: 322px;
+    #all-salas {
+        margin: 0;
     }
 }
+
+@media only screen and (max-width: 420px) and (max-height: 800px) {
+    .contenido.tabla-res {
+        height: 92vh;
+    }
+}
+
+@media only screen and (max-width: 420px) and (max-height: 700px) {
+    .contenido.tabla-res {
+        height: 91vh;
+    }
+}
+
 
 /* FIN RESPONSIVE */

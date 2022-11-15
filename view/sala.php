@@ -128,38 +128,6 @@ include 'cabezera.html';
                                     <input type="text-area" name="incidencia">
                                     <br>
                                 </div>
-                                <script>
-                                    reserva = document.getElementById("reserva-campo");
-                                    incidencia = document.getElementById("incidencia-campo");                                    
-
-                                    reserva.innerHTML = '';
-                                    incidencia.innerHTML = '';
-                                    select = document.getElementById('final-reserva');
-                                    reserva.innerHTML = `
-                                                <label for="">Nombre Reserva</label><br>
-                                                <input type="text" name="reserva">                                                
-                                            `;
-
-                                    select.addEventListener("change", () => {
-                                        if (document.getElementById('final-reserva').value == 'reserva') {
-                                            incidencia.innerHTML = '';                                           
-                                            reserva.innerHTML = `
-                                                <label for="">Nombre Reserva</label><br>
-                                                <input type="text" name="reserva">                                                
-                                            `;
-                                        } else if (document.getElementById('final-reserva').value == 'incidencia') {
-                                            incidencia.innerHTML = `
-                                                <label for="">Motivo Incidencia</label><br>
-                                                <input type="text-area" name="incidencia">
-                                                <br>
-                                            `;
-                                            reserva.innerHTML = '';  
-                                               
-                                        }                                      
-                                       
-                                    });
-
-                                </script>
                                         
                         </div>
                         <input type="submit"  id="submit" class="btn-login" value="Crear" >
