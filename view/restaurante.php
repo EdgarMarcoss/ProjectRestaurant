@@ -60,19 +60,21 @@ if (!isset($_SESSION['user'])) {
                                             
                                             $disponible = "0";
                                         }
+                                        echo '<p>Mesas Mantenimiento:</p><p>'.$disponible.'</p>';
+                                        
                                     }else{
-                                        echo '<p>Mesas Disponibles:</p>';
+                                        
                                         if (Sala::getMesaLibre()[$vuelta]["nombre_sala"] == $element["nombre_sala"]) {
                                             $disponible = Sala::getMesaLibre()[$vuelta]["Mid"];
                                             $vuelta++;
                                         } else {
                                             $disponible = "0";
                                          }
+                                         echo '<p>Mesas Disponibles:</p><p>'.$disponible.'</p>';
                                     }
-                                   
-                                    echo '<p>Mesas Mantenimiento:</p><p>'.$disponible.'</p>
+                                    
                             
-                                    <form action="sala.php" method="post" class="ver">
+                                    echo ' <form action="sala.php" method="post" class="ver">
                                         <input type="hidden" name="nsala" value="'.str_replace("_", " ", $element["nombre_sala"]).'">
                                         <input type="hidden" name="sala" value="'.$element['id'].'">
                                         <button type="submit" class="btn-salas">Ver</button>
