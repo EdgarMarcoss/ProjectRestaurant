@@ -46,19 +46,21 @@ if (!isset($_SESSION['user'])) {
 
                                                                                                    
                                     if ($listaUsuarios[0]['personal_usuario']=='mantenimiento') { 
-                                        // var_dump(Sala::getMesaMantenimiento()[$vuelta]["nombre_sala"]);
+                                        
                                         if (Sala::getMesaMantenimiento()) {
-                                            if (Sala::getMesaMantenimiento()[$vuelta]["nombre_sala"] == $element["nombre_sala"]) {
-                                                $disponible = Sala::getMesaMantenimiento()[$vuelta]["Mid"];
-                                                // $vuelta++;
-                                            } else {
-                                                $disponible = "0";
-
-                                            } 
+                                       
+                                        
+                                        
+                                        if (Sala::getMesaMantenimiento()[$vuelta]["nombre_sala"] == $element["nombre_sala"]) {
+                                            
+                                            $disponible = Sala::getMesaMantenimiento()[$vuelta]["Mid"];
+                                            $vuelta++;
+                                        } 
                                         }else{
+                                            
                                             $disponible = "0";
                                         }
-                                        echo '<p>Mesas Mantenimiento: '.$disponible.'</p>';
+                                        echo '<p>Mesas Mantenimiento:</p><p>'.$disponible.'</p>';
                                         
                                     }else{
                                         
@@ -68,7 +70,7 @@ if (!isset($_SESSION['user'])) {
                                         } else {
                                             $disponible = "0";
                                          }
-                                         echo '<p>Mesas Disponibles: '.$disponible.'</p>';
+                                         echo '<p>Mesas Disponibles:</p><p>'.$disponible.'</p>';
                                     }
                                     
                             
@@ -81,8 +83,6 @@ if (!isset($_SESSION['user'])) {
                             </div>
                         </div>';
                 echo '</div>';
-                // $vuelta++;
-
             } ?>
             <div class="btn-reservas">
                 <button id="all-salas"><i class="fa-solid fa-border-all"></i></button>

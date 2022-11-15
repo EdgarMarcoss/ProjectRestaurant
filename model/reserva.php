@@ -128,7 +128,7 @@ class Reserva {
          }else{
             $where="and r.id like '%".$id."%' and r.fecha_reserva like '%".$fecha_res."%' and r.fecha_desocupacion like '%".$fecha_des."%' and r.nombre_reserva like '%".$nombre_reserva."%' and s.nombre_sala like '%".$sala."%' and m.numero_mobiliario like '%".$mesa."%' and u.nombre_usuario like '%".$camarero."%' "; 
          }
-        $sql="SELECT r.id,r.fecha_reserva,r.fecha_desocupacion,r.nombre_reserva,s.nombre_sala,u.nombre_usuario,m.numero_mobiliario FROM tbl_reserva r INNER JOIN tbl_usuarios u ON r.id_usuario=u.id INNER JOIN tbl_mobiliario m ON m.id=r.id_mobiliario INNER JOIN tbl_salas s ON m.id_sala=s.id where r.fecha_desocupacion != ''  $where";  
+        $sql="SELECT r.id,r.fecha_reserva,r.fecha_desocupacion,r.nombre_reserva,s.nombre_sala,u.nombre_usuario,m.numero_mobiliario FROM tbl_reserva r INNER JOIN tbl_usuarios u ON r.id_usuario=u.id INNER JOIN tbl_mobiliario m ON m.id=r.id_mobiliario INNER JOIN tbl_salas s ON m.id_sala=s.id where r.fecha_desocupacion != ''  $where ORDER BY r.fecha_desocupacion DESC";  
         $listaReserva = mysqli_query($conexion, $sql);
         $listaReserva=$listaReserva->fetch_all(MYSQLI_ASSOC); 
         return $listaReserva;      
@@ -141,7 +141,7 @@ class Reserva {
             $where="and r.id like '%".$id."%' and r.fecha_reserva like '%".$fecha_res."%' and r.fecha_desocupacion like '%".$fecha_des."%' and r.nombre_reserva like '%".$nombre_reserva."%' and s.nombre_sala like '%".$sala."%' and m.numero_mobiliario like '%".$mesa."%' and u.nombre_usuario like '%".$camarero."%' "; 
         } 
         
-        $sql="SELECT r.id,r.fecha_reserva,r.fecha_desocupacion,r.nombre_reserva,s.nombre_sala,u.nombre_usuario,m.numero_mobiliario FROM tbl_reserva r INNER JOIN tbl_usuarios u ON r.id_usuario=u.id INNER JOIN tbl_mobiliario m ON m.id=r.id_mobiliario INNER JOIN tbl_salas s ON m.id_sala=s.id where r.fecha_desocupacion = ''  $where";  
+        $sql="SELECT r.id,r.fecha_reserva,r.fecha_desocupacion,r.nombre_reserva,s.nombre_sala,u.nombre_usuario,m.numero_mobiliario FROM tbl_reserva r INNER JOIN tbl_usuarios u ON r.id_usuario=u.id INNER JOIN tbl_mobiliario m ON m.id=r.id_mobiliario INNER JOIN tbl_salas s ON m.id_sala=s.id where r.fecha_desocupacion = ''  $where ORDER BY r.fecha_reserva DESC";  
         $listaReserva = mysqli_query($conexion, $sql);
         $listaReserva=$listaReserva->fetch_all(MYSQLI_ASSOC);  
         return $listaReserva;      
@@ -149,24 +149,27 @@ class Reserva {
     
     public static function crearReserva($correo,$nombre_reserva, $id_mesa){
 
+        if ($nombre_reserva != ''){
         require_once "conexion.php";
-        $sql1="SELECT id FROM tbl_usuarios WHERE email_usuario = '$correo'";
-        $id=mysqli_query($conexion,$sql1);
-        $id=$id->fetch_all(MYSQLI_ASSOC)[0]['id'];
+            $sql1="SELECT id FROM tbl_usuarios WHERE email_usuario = '$correo'";
+            $id=mysqli_query($conexion,$sql1);
+            $id=$id->fetch_all(MYSQLI_ASSOC)[0]['id'];
 
-        $sql="INSERT INTO tbl_reserva (nombre_reserva,id_usuario,id_mobiliario) VALUES (?,?,?);";
-        $stmt=mysqli_stmt_init($conexion);
-        mysqli_stmt_prepare($stmt,$sql);
-        mysqli_stmt_bind_param($stmt,"sii",$nombre_reserva,$id, $id_mesa);
-        mysqli_stmt_execute($stmt);
+            $sql="INSERT INTO tbl_reserva (nombre_reserva,id_usuario,id_mobiliario) VALUES (?,?,?);";
+            $stmt=mysqli_stmt_init($conexion);
+            mysqli_stmt_prepare($stmt,$sql);
+            mysqli_stmt_bind_param($stmt,"sii",$nombre_reserva,$id, $id_mesa);
+            mysqli_stmt_execute($stmt);
 
-        $sql =("UPDATE `tbl_mobiliario` SET `estado_mobiliario` = 'ocupado' WHERE `id`=?");
-        $stmt=mysqli_stmt_init($conexion);
-        mysqli_stmt_prepare($stmt,$sql);
-        mysqli_stmt_bind_param($stmt,"i",$id_mesa);
-        mysqli_stmt_execute($stmt);
+            $sql =("UPDATE `tbl_mobiliario` SET `estado_mobiliario` = 'ocupado' WHERE `id`=?");
+            $stmt=mysqli_stmt_init($conexion);
+            mysqli_stmt_prepare($stmt,$sql);
+            mysqli_stmt_bind_param($stmt,"i",$id_mesa);
+            mysqli_stmt_execute($stmt);
 
-        mysqli_stmt_close($stmt);
+            mysqli_stmt_close($stmt);
+        }
+        
         
     }
 
