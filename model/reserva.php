@@ -121,34 +121,74 @@ class Reserva {
     * Esta funcion te devuelve la lista de reserva y no le pasa ningun parametro
     */
 
-    public static function getReserva(){     
-        $where = "";
-        require_once "conexion.php";
-        $sql="SELECT r.id,r.fecha_reserva,r.fecha_desocupacion,s.nombre_sala,u.nombre_usuario,m.numero_mobiliario FROM tbl_reserva r INNER JOIN tbl_usuarios u ON r.id_usuario=u.id INNER JOIN tbl_mobiliario m ON m.id=r.id_mobiliario INNER JOIN tbl_salas s ON m.id_sala=s.id   $where";  
-        $listaReserva = mysqli_query($conexion, $sql);  
+    public static function getReservaFin($id = '', $fecha_res = '', $fecha_des = '', $nombre_reserva = '', $sala = '', $mesa = '', $camarero = ''){     
+        require_once "conexion.php";    
+        if(empty($id) and empty($fecha_res) and empty($fecha_des) and empty($nombre_reserva) and empty($sala) and empty($mesa) and empty($camarero)){
+            $where=''; 
+         }else{
+            $where="and r.id like '%".$id."%' and r.fecha_reserva like '%".$fecha_res."%' and r.fecha_desocupacion like '%".$fecha_des."%' and r.nombre_reserva like '%".$nombre_reserva."%' and s.nombre_sala like '%".$sala."%' and m.numero_mobiliario like '%".$mesa."%' and u.nombre_usuario like '%".$camarero."%' "; 
+         }
+        $sql="SELECT r.id,r.fecha_reserva,r.fecha_desocupacion,r.nombre_reserva,s.nombre_sala,u.nombre_usuario,m.numero_mobiliario FROM tbl_reserva r INNER JOIN tbl_usuarios u ON r.id_usuario=u.id INNER JOIN tbl_mobiliario m ON m.id=r.id_mobiliario INNER JOIN tbl_salas s ON m.id_sala=s.id where r.fecha_desocupacion != ''  $where ORDER BY r.fecha_desocupacion DESC";  
+        $listaReserva = mysqli_query($conexion, $sql);
+        $listaReserva=$listaReserva->fetch_all(MYSQLI_ASSOC); 
         return $listaReserva;      
-    }     
+    }
+    public static function getReservaActual($id = '', $fecha_res = '', $fecha_des = '', $nombre_reserva = '', $sala = '', $mesa = '', $camarero = ''){
+        require_once "conexion.php";    
+        if(empty($id) and empty($fecha_res) and empty($fecha_des) and empty($nombre_reserva) and empty($sala) and empty($mesa) and empty($camarero)){
+            $where=''; 
+        }else{
+            $where="and r.id like '%".$id."%' and r.fecha_reserva like '%".$fecha_res."%' and r.fecha_desocupacion like '%".$fecha_des."%' and r.nombre_reserva like '%".$nombre_reserva."%' and s.nombre_sala like '%".$sala."%' and m.numero_mobiliario like '%".$mesa."%' and u.nombre_usuario like '%".$camarero."%' "; 
+        } 
+        
+        $sql="SELECT r.id,r.fecha_reserva,r.fecha_desocupacion,r.nombre_reserva,s.nombre_sala,u.nombre_usuario,m.numero_mobiliario FROM tbl_reserva r INNER JOIN tbl_usuarios u ON r.id_usuario=u.id INNER JOIN tbl_mobiliario m ON m.id=r.id_mobiliario INNER JOIN tbl_salas s ON m.id_sala=s.id where r.fecha_desocupacion = ''  $where ORDER BY r.fecha_reserva DESC";  
+        $listaReserva = mysqli_query($conexion, $sql);
+        $listaReserva=$listaReserva->fetch_all(MYSQLI_ASSOC);  
+        return $listaReserva;      
+    }          
     
-    public static function crearReserva($id_usuario, $id_sala, $id_mesa){
+    public static function crearReserva($correo,$nombre_reserva, $id_mesa){
 
+        if ($nombre_reserva != ''){
         require_once "conexion.php";
-           
-        $sql="INSERT INTO tbl_reserva (id,fecha_reserva,fecha_desocupacion,id_usuario,id_sala,id_mesa) VALUES (?,?,?,?,?,?)";
-        $stmt=mysqli_stmt_init($conexion);
-        mysqli_stmt_prepare($stmt,$sql);
-        mysqli_stmt_bind_param($stmt,"issii",$id, $fecha_reserva, $fecha_desocupacion,$id_usuario, $id_sala,$id_mesa);         
-        mysqli_stmt_execute($stmt);  
+            $sql1="SELECT id FROM tbl_usuarios WHERE email_usuario = '$correo'";
+            $id=mysqli_query($conexion,$sql1);
+            $id=$id->fetch_all(MYSQLI_ASSOC)[0]['id'];
+
+            $sql="INSERT INTO tbl_reserva (nombre_reserva,id_usuario,id_mobiliario) VALUES (?,?,?);";
+            $stmt=mysqli_stmt_init($conexion);
+            mysqli_stmt_prepare($stmt,$sql);
+            mysqli_stmt_bind_param($stmt,"sii",$nombre_reserva,$id, $id_mesa);
+            mysqli_stmt_execute($stmt);
+
+            $sql =("UPDATE `tbl_mobiliario` SET `estado_mobiliario` = 'ocupado' WHERE `id`=?");
+            $stmt=mysqli_stmt_init($conexion);
+            mysqli_stmt_prepare($stmt,$sql);
+            mysqli_stmt_bind_param($stmt,"i",$id_mesa);
+            mysqli_stmt_execute($stmt);
+
+            mysqli_stmt_close($stmt);
+        }
+        
         
     }
 
-    public static function eliminarReserva($id){     
+    public static function eliminarReserva($id_mesa){     
       
         require_once 'conexion.php';
-        $sql =("DELETE FROM `tbl_reserva` WHERE `id`=?");
+        $sql =("UPDATE `tbl_reserva` SET `fecha_desocupacion` = now() WHERE `id_mobiliario`=? and `fecha_desocupacion` = ''");
         $stmt=mysqli_stmt_init($conexion);
         mysqli_stmt_prepare($stmt,$sql);
-        mysqli_stmt_bind_param($stmt,"i",$id);  
-        mysqli_stmt_execute($stmt);        
+        mysqli_stmt_bind_param($stmt,"i",$id_mesa);  
+        mysqli_stmt_execute($stmt); 
+
+        $sql =("UPDATE `tbl_mobiliario` SET `estado_mobiliario` = 'libre' WHERE `id`=?");
+        $stmt=mysqli_stmt_init($conexion);
+        mysqli_stmt_prepare($stmt,$sql);
+        mysqli_stmt_bind_param($stmt,"i",$id_mesa);
+        mysqli_stmt_execute($stmt);
+
+        mysqli_stmt_close($stmt);       
     } 
 
 

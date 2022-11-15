@@ -10,7 +10,7 @@
     <script src="js/estilos.js"></script>
     <title>Login</title>
 </head>
-<body>
+<body class="img-back">
     <div class="background">
         <?php
         if(isset($_GET['error'])){
@@ -36,7 +36,7 @@
             <form action="./controller/proc_login.php" method="post" onsubmit="return valid()">
                 <div>
                     <label for="">Correo</label>
-                    <input id="correo" type="text" name="mail" onkeyup="validCorreo()">
+                    <input id="correo" type="text" name="mail" placeholder="example@gmail.com" onkeyup="validCorreo()">
                     <p id="mensaje1"></p>
                 </div>
                 <div>
